@@ -19,6 +19,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
 from openai import OpenAI
+import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from config import get_ai_config
@@ -27,7 +28,6 @@ from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.style import WD_STYLE_TYPE
-import os
 
 # ================================
 # 1. 配置和初始化
