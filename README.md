@@ -579,7 +579,7 @@ cProfile.run('your_function()')
 ## 📞 联系方式
 
 - **项目维护者**：商海星辰队
-- **邮箱**：contact@zhishui-ai.com
+- **邮箱**：quyhau680@gmail.com
 - **项目主页**：[https://github.com/your-username/zhishui-ai-management](https://github.com/your-username/zhishui-ai-management)
 - **问题反馈**：[提交Issue](https://github.com/your-username/zhishui-ai-management/issues)
 
