@@ -1,0 +1,56 @@
+智水人员效能管理服务 - 修复版测试参数
+
+🔧 问题修复：现在工具支持AI平台自动转换的字典对象！
+
+=== 工具1：evaluate_employee_efficiency ===
+
+✅ 支持三种输入方式：
+
+方式1 - CSV文件路径（推荐）：
+参数1 (employee_data): employee_data.csv
+参数2 (metrics_data): metrics_data.csv
+参数3 (position_type): 生产运维
+
+方式2 - JSON字符串：
+参数1 (employee_data): {"name":"李明华","employee_id":"EMP001",...}
+参数2 (metrics_data): {"economic_value":{...},...}
+参数3 (position_type): 生产运维
+
+方式3 - 字典对象（AI平台自动转换）：
+参数1 (employee_data): {name: "李明华", employee_id: "EMP001", ...}
+参数2 (metrics_data): {economic_value: {...}, ...}
+参数3 (position_type): 生产运维
+
+=== 工具2：generate_efficiency_report ===
+
+✅ 支持字典对象直接输入：
+
+参数1 (report_type): individual
+参数2 (target_scope): 李明华
+参数3 (time_period): quarterly
+参数4 (data_source): [工具1的输出结果 - 支持字典对象]
+参数5 (output_format): html
+
+=== 核心修复说明 ===
+
+🎯 问题根源：
+- AI平台会自动将JSON字符串转换为字典对象
+- 原工具只接受字符串类型，导致类型不匹配
+
+✅ 修复方案：
+- 工具参数类型改为 Union[str, Dict]
+- 智能检测输入类型（字符串/字典/文件路径）
+- 自动适配不同AI平台的数据传递方式
+
+🚀 现在支持的AI平台：
+- Claude Desktop
+- ChatGPT
+- 其他支持MCP协议的AI工具
+
+=== 测试流程 ===
+
+1. 使用任意方式调用工具1获得评分
+2. 将工具1的完整输出作为工具2的data_source参数
+3. 生成HTML可视化报告
+
+✅ 无需担心参数格式转换问题！

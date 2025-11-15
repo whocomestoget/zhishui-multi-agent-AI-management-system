@@ -1,0 +1,39 @@
+智水人员效能管理服务 - 快速测试参数
+
+=== 工具1：evaluate_employee_efficiency ===
+
+参数1 (employee_data):
+{"name":"李明华","employee_id":"ZS2024001","department":"智慧电厂运维部","position":"高级运维工程师","evaluation_period":"2024年第四季度","hire_date":"2020-03-15","education":"电气工程硕士","years_experience":8}
+
+参数2 (metrics_data):
+{"economic_value":{"cost_optimization":{"baseline_unit_cost":1200.0,"actual_unit_cost":980.0,"cost_saving_amount":220000.0,"efficiency_projects_led":3},"digital_efficiency":{"baseline_work_hours":45.0,"actual_work_hours":38.0,"automation_usage_rate":0.85,"digital_tools_mastery":0.92}},"customer_social":{"service_reliability":{"unplanned_outage_hours":2.5,"baseline_outage_hours":8.0,"quality_compliance_rate":0.96,"equipment_availability":0.994},"customer_service":{"complaint_resolution_rate":0.95,"average_response_time":0.8,"customer_satisfaction_score":4.6,"service_improvement_initiatives":2}},"internal_process":{"process_efficiency":{"baseline_process_cycle":72.0,"actual_process_cycle":58.0,"process_error_rate":0.02,"workflow_optimization_count":4},"risk_compliance":{"safety_incidents_found":6,"environmental_incidents":0,"compliance_training_completion":1.0,"risk_assessment_participation":12}},"learning_growth":{"skill_development":{"new_certifications_count":2,"training_hours_completed":85,"skill_assessment_score":88,"technical_competency_growth":0.15},"innovation_sharing":{"innovation_proposals_submitted":3,"innovation_proposals_adopted":2,"knowledge_sharing_contributions":8,"mentoring_hours":24},"environmental_practice":{"green_behavior_score":4.5,"environmental_improvement_proposals":2,"environmental_training_hours":16,"carbon_footprint_reduction":0.12}}}
+
+参数3 (position_type):
+生产运维
+
+=== 工具2：generate_efficiency_report ===
+
+参数1 (report_type):
+individual
+
+参数2 (target_scope):
+李明华
+
+参数3 (time_period):
+quarterly
+
+参数4 (data_source):
+[将工具1的完整JSON输出结果粘贴到这里]
+
+参数5 (output_format):
+html
+
+=== 测试步骤 ===
+1. 先调用工具1，复制上面的三个参数
+2. 将工具1的输出结果作为工具2的data_source参数
+3. 调用工具2生成HTML报告
+4. 在浏览器中打开生成的HTML文件查看报告
+
+=== 预期结果 ===
+- 工具1：返回包含总分85.2分（良好等级）的详细评分JSON
+- 工具2：生成HTML报告文件，包含可交互图表和AI建议

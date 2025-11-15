@@ -1,0 +1,78 @@
+{
+  "timestamp": "2025-09-10T20:25:08.729626",
+  "model_type": "Final Solution: Data Augmentation + Ultra Regularization",
+  "optimization_target": "Solve Overfitting with Data Augmentation",
+  "original_dataset_size": 41,
+  "augmented_dataset_size": "Original * 3",
+  "train_test_split": "75-25",
+  "feature_count": 4,
+  "selected_features": [
+    "capacity_mw",
+    "capacity_per_period",
+    "economic_indicator",
+    "project_type_encoded"
+  ],
+  "project_type_mapping": {
+    "常规大坝": 0,
+    "径流式": 1,
+    "抽水蓄能": 2
+  },
+  "location_mapping": {
+    "河谷": 1,
+    "高山峡谷": 2,
+    "山区": 0
+  },
+  "best_model_metrics": {
+    "train_r2": 0.8447614512879508,
+    "test_r2": 0.8207887773538656,
+    "overfitting_gap": 0.023972673934085198,
+    "overfitting_percentage": 2.837803961998465,
+    "cv_mean": 0.6953475255317907,
+    "cv_std": 0.25863086170424604,
+    "best_params": {
+      "alpha": 10.0
+    }
+  },
+  "all_model_results": {
+    "Ridge_Ultra": {
+      "train_r2": 0.7954355410619998,
+      "test_r2": 0.760120152345356,
+      "overfitting_gap": 0.03531538871664375,
+      "overfitting_percentage": 4.439754938469755,
+      "cv_mean": 0.6670059896739158,
+      "cv_std": 0.18548286736204553,
+      "best_params": {
+        "alpha": 50.0
+      }
+    },
+    "Lasso_Ultra": {
+      "train_r2": 0.8447614512879508,
+      "test_r2": 0.8207887773538656,
+      "overfitting_gap": 0.023972673934085198,
+      "overfitting_percentage": 2.837803961998465,
+      "cv_mean": 0.6953475255317907,
+      "cv_std": 0.25863086170424604,
+      "best_params": {
+        "alpha": 10.0
+      }
+    },
+    "ElasticNet_Ultra": {
+      "train_r2": 0.5959876146945758,
+      "test_r2": 0.5560041958535549,
+      "overfitting_gap": 0.03998341884102097,
+      "overfitting_percentage": 6.708766735280423,
+      "cv_mean": 0.5018902470350675,
+      "cv_std": 0.1372779151762067,
+      "best_params": {
+        "alpha": 20.0,
+        "l1_ratio": 0.9
+      }
+    }
+  },
+  "feature_importance": {
+    "capacity_mw": 0.6750761288556318,
+    "capacity_per_period": 0.25785167548539295,
+    "project_type_encoded": 0.0670721956589752,
+    "economic_indicator": 0.0
+  }
+}

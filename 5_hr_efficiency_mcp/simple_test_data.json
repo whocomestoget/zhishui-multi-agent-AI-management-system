@@ -1,0 +1,67 @@
+{
+  "employee_data": {
+    "name": "李明华",
+    "employee_id": "EMP001",
+    "department": "技术研发部",
+    "position": "高级工程师",
+    "evaluation_period": "2024Q4",
+    "hire_date": "2020-03-15",
+    "education": "本科",
+    "years_experience": 8,
+    "position_type": "技术研发"
+  },
+  "metrics_data": {
+    "economic_value": {
+      "cost_optimization": {
+        "baseline_unit_cost": 1200,
+        "actual_unit_cost": 980
+      },
+      "digital_efficiency": {
+        "baseline_work_hours": 40,
+        "actual_work_hours": 32,
+        "automation_usage_rate": 0.85
+      }
+    },
+    "customer_social": {
+      "service_reliability": {
+        "unplanned_outage_hours": 2.5,
+        "baseline_outage_hours": 8.0,
+        "quality_compliance_rate": 0.96
+      },
+      "customer_service": {
+        "complaint_resolution_rate": 0.92,
+        "average_response_time": 0.8,
+        "customer_satisfaction_score": 4.3
+      }
+    },
+    "internal_process": {
+      "process_efficiency": {
+        "baseline_process_cycle": 5.0,
+        "actual_process_cycle": 3.2,
+        "process_error_rate": 0.03
+      },
+      "risk_compliance": {
+        "safety_incidents_found": 3,
+        "environmental_incidents": 0,
+        "compliance_training_completion": 0.95
+      }
+    },
+    "learning_growth": {
+      "skill_development": {
+        "new_certifications_count": 2,
+        "training_hours_completed": 72,
+        "skill_assessment_score": 88
+      },
+      "innovation_sharing": {
+        "innovation_proposals_submitted": 3,
+        "innovation_proposals_adopted": 2,
+        "knowledge_sharing_contributions": 8
+      },
+      "environmental_practice": {
+        "green_behavior_score": 4.2,
+        "environmental_improvement_proposals": 1,
+        "environmental_training_hours": 12
+      }
+    }
+  }
+}

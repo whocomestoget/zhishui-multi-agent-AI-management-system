@@ -1,0 +1,129 @@
+{
+  "report_metadata": {
+    "generation_time": "2025-09-10T17:33:35.184530",
+    "model_directory": "models",
+    "test_data_path": "data_templates/智慧水电成本预测数据模板_20250910_examples.csv",
+    "report_version": "1.0"
+  },
+  "model_validation": {
+    "timestamp": "2025-09-10T17:33:31.033361",
+    "test_data_shape": [
+      10,
+      6
+    ],
+    "metrics": {
+      "r2_score": 0.9209615452742556,
+      "rmse": 684666.8934140782,
+      "mae": 521676.07649999997,
+      "mape": 31.005116970722153,
+      "relative_rmse": 0.14274904917574088
+    },
+    "performance_targets_met": {
+      "r2_target_met": true,
+      "rmse_target_met": true,
+      "mae_target_met": false,
+      "overall_target_met": false
+    },
+    "detailed_analysis": {
+      "by_capacity": {
+        "中型(25-250MW)": {
+          "r2_score": NaN,
+          "rmse": 1299701.27,
+          "mae": 1299701.27,
+          "mape": 179.82772280241522,
+          "relative_rmse": 1.7982772280241524
+        },
+        "大型(250-1000MW)": {
+          "r2_score": 0.8621510996798354,
+          "rmse": 476177.80010134587,
+          "mae": 315351.1083333334,
+          "mape": 23.837116479074837,
+          "relative_rmse": 0.16020305897185547
+        },
+        "巨型(>1000MW)": {
+          "r2_score": 0.8162202520159397,
+          "rmse": 621587.7876059505,
+          "mae": 495167.69499999983,
+          "mape": 9.785349577930296,
+          "relative_rmse": 0.09731770441341964
+        }
+      },
+      "error_distribution": {
+        "mean_residual": 323462.35850000003,
+        "std_residual": 603440.8484440724,
+        "mean_relative_error": 27.97083020126261,
+        "std_relative_error": 55.181675008403055,
+        "error_percentiles": {
+          "5%": -6.063380910720513,
+          "25%": -1.8729703533030269,
+          "50%": 2.2366017359289936,
+          "75%": 27.227865974226066,
+          "95%": 129.5802318259806
+        }
+      },
+      "outlier_analysis": {
+        "outlier_count": 2,
+        "outlier_percentage": 20.0,
+        "outlier_threshold": 43.65125449129364
+      }
+    }
+  },
+  "feature_analysis": {
+    "top_features": {
+      "capacity_mw": {
+        "importance": 1.0,
+        "business_meaning": "装机容量(MW)",
+        "rank": 1
+      },
+      "project_type": {
+        "importance": 0.0,
+        "business_meaning": "项目类型",
+        "rank": 2
+      },
+      "location_factor": {
+        "importance": 0.0,
+        "business_meaning": "地理位置因子",
+        "rank": 3
+      }
+    },
+    "feature_categories": {
+      "scale_related": 1.0,
+      "project_related": 0.0,
+      "location_related": 0.0,
+      "time_related": 0,
+      "economic_related": 0
+    },
+    "total_features": 3,
+    "cumulative_importance": {
+      "top_5": 1.0,
+      "top_10": 1.0,
+      "top_20": 1.0
+    }
+  },
+  "business_insights": {
+    "model_readiness": {
+      "overall_assessment": "needs_improvement",
+      "deployment_recommendation": "ready",
+      "confidence_level": "high"
+    },
+    "accuracy_analysis": {
+      "prediction_accuracy": "92.1%",
+      "typical_error_range": "±521676万元",
+      "relative_accuracy": "69.0%"
+    },
+    "business_applications": {
+      "cost_estimation": "limited",
+      "budget_planning": "reliable",
+      "investment_decision": "supplementary_only"
+    },
+    "improvement_suggestions": [
+      "优化特征工程，特别关注成本影响因子"
+    ]
+  },
+  "visualization_files": {
+    "prediction_comparison": "models\\evaluation_reports\\prediction_comparison.png",
+    "feature_importance": "models\\evaluation_reports\\feature_importance.png",
+    "error_distribution": "models\\evaluation_reports\\error_distribution.png",
+    "performance_by_category": "models\\evaluation_reports\\performance_by_category.png"
+  }
+}

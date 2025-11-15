@@ -1,0 +1,109 @@
+{
+  "cost_prediction_mcp_test_data": {
+    "description": "智慧水电成本预测MCP工具集演示数据 - 简化版",
+    "version": "1.1",
+    "created_date": "2025-01-16",
+    "demo_project": {
+      "project_name": "四川某大型常规大坝水电站",
+      "project_description": "位于四川省甘孜州的大型常规大坝水电站项目，装机容量1200MW，建设周期8年，地质条件复杂，环境敏感"
+    },
+    "tools": {
+      "tool_1_predict_hydropower_cost": {
+        "tool_name": "predict_hydropower_cost",
+        "description": "智慧水电成本预测器",
+        "parameters": {
+          "capacity_mw": "装机容量(MW)",
+          "project_type": "项目类型(常规大坝/抽水蓄能/径流式)",
+          "construction_period": "建设周期(年)",
+          "economic_indicator": "经济指标(0-1之间)"
+        },
+        "demo_scenario": {
+          "scenario_name": "大型常规大坝项目成本预测",
+          "scenario_id": "DEMO_T1",
+          "input_data": {
+            "capacity_mw": 1200.0,
+            "project_type": "常规大坝",
+            "construction_period": 8,
+            "economic_indicator": 0.75
+          },
+          "description": "四川某大型常规大坝水电站，装机容量1200MW，建设周期8年，经济指标良好"
+        }
+      },
+      "tool_2_assess_project_risk": {
+        "tool_name": "assess_project_risk",
+        "description": "智能项目风险评估器 - 基于动态AHP和LLM专家评估",
+        "parameters": {
+          "predicted_cost": "基础成本预测(亿元) - 来自工具1的输出",
+          "project_type": "项目类型(常规大坝/抽水蓄能/径流式)",
+          "capacity_mw": "装机容量(MW)",
+          "construction_period": "建设周期(年)",
+          "client_type": "客户类型(央企/国企/民企/外企)",
+          "project_complexity": "项目复杂度(简单/中等/复杂)",
+          "project_description": "项目背景描述(可选)",
+          "location": "地理位置(可选)",
+          "environmental_conditions": "环境条件描述(可选)"
+        },
+        "demo_scenario": {
+          "scenario_name": "大型常规大坝项目风险评估",
+          "scenario_id": "DEMO_T2",
+          "input_data": {
+            "predicted_cost": "使用工具1的预测结果",
+            "project_type": "常规大坝",
+            "capacity_mw": 1200.0,
+            "construction_period": 8,
+            "client_type": "央企",
+            "project_complexity": "复杂",
+            "project_description": "位于地质条件复杂的高山峡谷地区，涉及大规模移民搬迁，技术难度较高",
+            "location": "四川省甘孜州",
+            "environmental_conditions": "高海拔山区，地质构造复杂，生态环境敏感"
+          },
+          "description": "央企投资的大型复杂水电项目，地质条件复杂，环境敏感，需要综合风险评估"
+        }
+      }
+    },
+    "demo_workflow": {
+      "description": "完整的两工具协同演示流程",
+      "steps": [
+        {
+          "step": 1,
+          "action": "成本预测",
+          "tool": "tool_1_predict_hydropower_cost",
+          "input": "使用demo_scenario中的input_data（4个参数）",
+          "output": "获得成本预测结果（包含预测成本、置信区间等）"
+        },
+        {
+          "step": 2,
+          "action": "风险评估",
+          "tool": "tool_2_assess_project_risk",
+          "input": "使用工具1的预测成本 + demo_scenario中的其他参数（9个参数）",
+          "output": "获得风险评估结果（包含风险等级、应急建议等）"
+        },
+        {
+          "step": 3,
+          "action": "结果分析",
+          "description": "对比分析成本预测和风险评估的结果，为决策提供支持"
+        }
+      ]
+    },
+    "usage_instructions": {
+      "quick_demo": {
+        "description": "快速演示方法",
+        "steps": [
+          "1. 使用工具1的demo_scenario进行成本预测",
+          "2. 将工具1的结果作为predicted_cost，结合工具2的demo_scenario进行风险评估",
+          "3. 查看两个工具的协同效果"
+        ]
+      },
+      "parameter_guide": {
+        "tool_1_required": ["capacity_mw", "project_type", "construction_period", "economic_indicator"],
+        "tool_2_required": ["predicted_cost", "project_type", "capacity_mw", "construction_period", "client_type", "project_complexity"],
+        "tool_2_optional": ["project_description", "location", "environmental_conditions"]
+      }
+    },
+    "demo_expectations": {
+      "tool_1_output": "预期输出包含预测成本（约180亿元）、置信区间、成本构成分析等",
+      "tool_2_output": "预期输出包含风险等级、风险评分、应急建议、专家分析等",
+      "integration_value": "两工具结合可为水电项目投资决策提供成本和风险的双重保障"
+    }
+  }
+}

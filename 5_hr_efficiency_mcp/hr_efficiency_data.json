@@ -1,0 +1,236 @@
+{
+  "description": "智水人员效能管理MCP服务完整数据demo",
+  "version": "1.0",
+  "created_date": "2024-12-19",
+  "tools_supported": [
+    "evaluate_employee_efficiency",
+    "generate_efficiency_report"
+  ],
+  
+  "employee_data_demo": {
+    "name": "张伟",
+    "employee_id": "ZS2024001",
+    "department": "技术研发部",
+    "position": "高级软件工程师",
+    "evaluation_period": "2024年第四季度",
+    "hire_date": "2022-03-15",
+    "education": "本科",
+    "work_experience": "5年"
+  },
+  
+  "metrics_data_demo": {
+    "economic_value": {
+      "cost_optimization": {
+        "cost_reduction_amount": 150000,
+        "cost_reduction_percentage": 12.5,
+        "optimization_projects_count": 3,
+        "roi_improvement": 8.2
+      },
+      "digital_efficiency": {
+        "automation_hours_saved": 240,
+        "process_improvement_count": 5,
+        "system_uptime_percentage": 99.2,
+        "digital_tools_adoption_rate": 85
+      }
+    },
+    
+    "customer_social": {
+      "service_reliability": {
+        "system_availability": 99.5,
+        "incident_response_time_minutes": 15,
+        "customer_satisfaction_score": 4.6,
+        "sla_compliance_rate": 98.5
+      },
+      "customer_service": {
+        "customer_feedback_score": 4.7,
+        "service_improvement_initiatives": 4,
+        "customer_retention_contribution": 92,
+        "social_responsibility_hours": 16
+      }
+    },
+    
+    "internal_process": {
+      "process_efficiency": {
+        "task_completion_rate": 96,
+        "deadline_adherence_rate": 94,
+        "process_optimization_suggestions": 8,
+        "cross_department_collaboration_score": 4.3
+      },
+      "risk_compliance": {
+        "compliance_training_completion": 100,
+        "security_incident_count": 0,
+        "audit_findings_resolved": 5,
+        "risk_assessment_participation": 12
+      }
+    },
+    
+    "learning_growth": {
+      "skill_development": {
+        "new_certifications_count": 2,
+        "training_hours_completed": 72,
+        "skill_assessment_score": 88
+      },
+      "innovation_sharing": {
+        "innovation_proposals_submitted": 3,
+        "innovation_proposals_adopted": 2,
+        "knowledge_sharing_contributions": 8
+      },
+      "environmental_practice": {
+        "green_behavior_score": 4.2,
+        "environmental_improvement_proposals": 1,
+        "environmental_training_hours": 6
+      }
+    }
+  },
+  
+  "position_types": [
+    "生产运维",
+    "客户服务", 
+    "技术研发",
+    "管理岗位"
+  ],
+  
+  "report_types": [
+    "individual",
+    "team",
+    "department", 
+    "company"
+  ],
+  
+  "time_periods": [
+    "monthly",
+    "quarterly",
+    "yearly",
+    "custom"
+  ],
+  
+  "output_formats": [
+    "markdown",
+    "html"
+  ],
+  
+  "sample_usage": {
+    "evaluate_employee_efficiency": {
+      "employee_data": "{\"name\": \"张伟\", \"employee_id\": \"ZS2024001\", \"department\": \"技术研发部\", \"position\": \"高级软件工程师\", \"evaluation_period\": \"2024年第四季度\"}",
+      "metrics_data": "{\"economic_value\": {\"cost_optimization\": {\"cost_reduction_amount\": 150000, \"cost_reduction_percentage\": 12.5, \"optimization_projects_count\": 3, \"roi_improvement\": 8.2}, \"digital_efficiency\": {\"automation_hours_saved\": 240, \"process_improvement_count\": 5, \"system_uptime_percentage\": 99.2, \"digital_tools_adoption_rate\": 85}}, \"customer_social\": {\"service_reliability\": {\"system_availability\": 99.5, \"incident_response_time_minutes\": 15, \"customer_satisfaction_score\": 4.6, \"sla_compliance_rate\": 98.5}, \"customer_service\": {\"customer_feedback_score\": 4.7, \"service_improvement_initiatives\": 4, \"customer_retention_contribution\": 92, \"social_responsibility_hours\": 16}}, \"internal_process\": {\"process_efficiency\": {\"task_completion_rate\": 96, \"deadline_adherence_rate\": 94, \"process_optimization_suggestions\": 8, \"cross_department_collaboration_score\": 4.3}, \"risk_compliance\": {\"compliance_training_completion\": 100, \"security_incident_count\": 0, \"audit_findings_resolved\": 5, \"risk_assessment_participation\": 12}}, \"learning_growth\": {\"skill_development\": {\"new_certifications_count\": 2, \"training_hours_completed\": 72, \"skill_assessment_score\": 88}, \"innovation_sharing\": {\"innovation_proposals_submitted\": 3, \"innovation_proposals_adopted\": 2, \"knowledge_sharing_contributions\": 8}, \"environmental_practice\": {\"green_behavior_score\": 4.2, \"environmental_improvement_proposals\": 1, \"environmental_training_hours\": 6}}}",
+      "position_type": "技术研发"
+    },
+    
+    "generate_efficiency_report": {
+      "report_type": "individual",
+      "target_scope": "张伟",
+      "time_period": "quarterly",
+      "data_source": "{\"scores_data\": {\"总分\": 85.6, \"等级\": \"良好\", \"经济与价值创造\": {\"得分\": 82.5, \"权重\": \"30%\", \"贡献\": 24.75}, \"客户与社会贡献\": {\"得分\": 88.2, \"权重\": \"15%\", \"贡献\": 13.23}, \"内部流程与治理\": {\"得分\": 90.1, \"权重\": \"25%\", \"贡献\": 22.53}, \"学习成长与环境\": {\"得分\": 85.0, \"权重\": \"30%\", \"贡献\": 25.5}}, \"employee_info\": {\"姓名\": \"张伟\", \"部门\": \"技术研发部\", \"职位\": \"高级软件工程师\"}}",
+      "output_format": "markdown"
+    }
+  },
+  
+  "additional_test_employees": [
+    {
+      "name": "李娜",
+      "employee_id": "ZS2024002",
+      "department": "客户服务部",
+      "position": "客户服务经理",
+      "position_type": "客户服务",
+      "evaluation_period": "2024年第四季度"
+    },
+    {
+      "name": "王强",
+      "employee_id": "ZS2024003", 
+      "department": "运维部",
+      "position": "运维工程师",
+      "position_type": "生产运维",
+      "evaluation_period": "2024年第四季度"
+    },
+    {
+      "name": "陈明",
+      "employee_id": "ZS2024004",
+      "department": "管理层",
+      "position": "技术总监",
+      "position_type": "管理岗位",
+      "evaluation_period": "2024年第四季度"
+    }
+  ],
+  
+  "data_field_descriptions": {
+    "economic_value": {
+      "description": "经济与价值创造维度数据",
+      "cost_optimization": {
+        "cost_reduction_amount": "成本削减金额（元）",
+        "cost_reduction_percentage": "成本削减百分比（%）",
+        "optimization_projects_count": "优化项目数量",
+        "roi_improvement": "投资回报率改善（%）"
+      },
+      "digital_efficiency": {
+        "automation_hours_saved": "自动化节省工时（小时）",
+        "process_improvement_count": "流程改进数量",
+        "system_uptime_percentage": "系统正常运行时间（%）",
+        "digital_tools_adoption_rate": "数字化工具采用率（%）"
+      }
+    },
+    "customer_social": {
+      "description": "客户与社会贡献维度数据",
+      "service_reliability": {
+        "system_availability": "系统可用性（%）",
+        "incident_response_time_minutes": "事故响应时间（分钟）",
+        "customer_satisfaction_score": "客户满意度评分（1-5分）",
+        "sla_compliance_rate": "SLA合规率（%）"
+      },
+      "customer_service": {
+        "customer_feedback_score": "客户反馈评分（1-5分）",
+        "service_improvement_initiatives": "服务改进举措数量",
+        "customer_retention_contribution": "客户保留贡献率（%）",
+        "social_responsibility_hours": "社会责任活动小时数"
+      }
+    },
+    "internal_process": {
+      "description": "内部流程与治理维度数据",
+      "process_efficiency": {
+        "task_completion_rate": "任务完成率（%）",
+        "deadline_adherence_rate": "截止日期遵守率（%）",
+        "process_optimization_suggestions": "流程优化建议数量",
+        "cross_department_collaboration_score": "跨部门协作评分（1-5分）"
+      },
+      "risk_compliance": {
+        "compliance_training_completion": "合规培训完成率（%）",
+        "security_incident_count": "安全事件数量",
+        "audit_findings_resolved": "审计发现问题解决数量",
+        "risk_assessment_participation": "风险评估参与次数"
+      }
+    },
+    "learning_growth": {
+      "description": "学习成长与环境维度数据",
+      "skill_development": {
+        "new_certifications_count": "新获得证书数量",
+        "training_hours_completed": "培训完成小时数",
+        "skill_assessment_score": "技能评估得分（0-100分）"
+      },
+      "innovation_sharing": {
+        "innovation_proposals_submitted": "创新提案提交数量",
+        "innovation_proposals_adopted": "创新提案采纳数量",
+        "knowledge_sharing_contributions": "知识分享贡献次数"
+      },
+      "environmental_practice": {
+        "green_behavior_score": "绿色行为评分（1-5分）",
+        "environmental_improvement_proposals": "环境改进提案数量",
+        "environmental_training_hours": "环境培训小时数"
+      }
+    }
+  },
+  
+  "scoring_rules": {
+    "dimension_weights": {
+      "生产运维": {"economic": 40, "customer": 30, "process": 25, "learning": 5},
+      "客户服务": {"customer": 40, "process": 25, "economic": 25, "learning": 10},
+      "技术研发": {"learning": 30, "economic": 30, "process": 25, "customer": 15},
+      "管理岗位": {"economic": 30, "process": 30, "customer": 25, "learning": 15}
+    },
+    "grade_thresholds": {
+      "优秀": "≥90分",
+      "良好": "80-89分",
+      "合格": "70-79分",
+      "待提高": "60-69分",
+      "需改进": "<60分"
+    }
+  }
+}

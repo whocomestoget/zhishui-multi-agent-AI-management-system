@@ -1,0 +1,281 @@
+{
+  "description": "四川智水信息技术有限公司 - 成本预测MCP服务测试数据集",
+  "version": "1.0.0",
+  "created_date": "2024-12-19",
+  "purpose": "为成本预测MCP服务的三个核心工具提供完整的测试数据",
+  "tools_covered": [
+    "predict_hydropower_cost - 智慧水电成本预测器",
+    "assess_project_risk - 智能项目风险评估器",
+    "generate_analysis_data - 成本分析数据生成器"
+  ],
+  
+  "tool_1_predict_hydropower_cost": {
+    "description": "智慧水电成本预测器测试数据",
+    "test_cases": [
+      {
+        "case_name": "大型抽水蓄能电站项目",
+        "input_parameters": {
+          "capacity_mw": 1200.0,
+          "project_type": "抽水蓄能",
+          "construction_period": 6,
+          "economic_indicator": 0.75
+        },
+        "expected_output_structure": {
+          "status": "success",
+          "predicted_cost_million_rmb": "数值(万元)",
+          "predicted_cost_billion_rmb": "数值(亿元)",
+          "confidence_interval": {
+            "lower": "下限值",
+            "upper": "上限值"
+          },
+          "cost_breakdown": {
+            "physical_infrastructure": "物理基础设施比例",
+            "digital_systems": "数字化系统比例",
+            "integration_services": "集成服务比例"
+          },
+          "feature_importance": "特征重要性分析",
+          "unit_cost_per_mw": "单位装机成本",
+          "prediction_timestamp": "预测时间戳"
+        }
+      },
+      {
+        "case_name": "中型常规大坝项目",
+        "input_parameters": {
+          "capacity_mw": 500.0,
+          "project_type": "常规大坝",
+          "construction_period": 4,
+          "economic_indicator": 0.65
+        }
+      },
+      {
+        "case_name": "小型径流式电站",
+        "input_parameters": {
+          "capacity_mw": 50.0,
+          "project_type": "径流式",
+          "construction_period": 2,
+          "economic_indicator": 0.8
+        }
+      }
+    ]
+  },
+  
+  "tool_2_assess_project_risk": {
+    "description": "智能项目风险评估器测试数据",
+    "test_cases": [
+      {
+        "case_name": "高风险复杂项目评估",
+        "input_parameters": {
+          "predicted_cost": 54.0,
+          "project_type": "抽水蓄能",
+          "capacity_mw": 1200.0,
+          "construction_period": 6,
+          "client_type": "央企",
+          "project_complexity": "复杂",
+          "project_description": "位于山区的大型抽水蓄能电站，涉及复杂地质条件和环保要求",
+          "location": "四川省阿坝州",
+          "environmental_conditions": "高海拔山区，地质条件复杂，生态环境敏感"
+        },
+        "expected_output_structure": {
+          "status": "success",
+          "expert_reasoning_display": "专家评估详细理由",
+          "assessment_method": "动态AHP层次分析法 + LLM专家评估",
+          "risk_level": "风险等级(低/中等/高)",
+          "risk_score": "风险评分",
+          "cost_overrun_probability": "成本超支概率分布",
+          "contingency_recommendation": {
+            "percentage": "应急费用比例",
+            "amount_million_rmb": "应急费用金额(万元)",
+            "justification": "建议理由"
+          },
+          "key_risk_factors": "关键风险因素列表",
+          "mitigation_suggestions": "缓解建议列表",
+          "detailed_expert_reasoning": "详细专家推理",
+          "assessment_timestamp": "评估时间戳"
+        }
+      },
+      {
+        "case_name": "中等风险标准项目",
+        "input_parameters": {
+          "predicted_cost": 22.5,
+          "project_type": "常规大坝",
+          "capacity_mw": 500.0,
+          "construction_period": 4,
+          "client_type": "国企",
+          "project_complexity": "中等",
+          "project_description": "标准的常规大坝水电站项目",
+          "location": "四川省雅安市",
+          "environmental_conditions": "地质条件良好，环境影响可控"
+        }
+      },
+      {
+        "case_name": "低风险简单项目",
+        "input_parameters": {
+          "predicted_cost": 2.25,
+          "project_type": "径流式",
+          "capacity_mw": 50.0,
+          "construction_period": 2,
+          "client_type": "民企",
+          "project_complexity": "简单",
+          "project_description": "小型径流式水电站改造项目",
+          "location": "四川省成都市",
+          "environmental_conditions": "平原地区，环境条件优良"
+        }
+      }
+    ]
+  },
+  
+  "tool_3_generate_analysis_data": {
+    "description": "成本分析数据生成器测试数据",
+    "test_cases": [
+      {
+        "case_name": "完整分析数据生成示例",
+        "input_parameters": {
+          "cost_prediction_json": "{\"status\": \"success\", \"predicted_cost_million_rmb\": 5400.0, \"predicted_cost_billion_rmb\": 54.0, \"confidence_interval\": {\"lower\": 45.9, \"upper\": 62.1}, \"cost_breakdown\": {\"physical_infrastructure\": 0.65, \"digital_systems\": 0.25, \"integration_services\": 0.10}, \"feature_importance\": {\"capacity_mw\": 0.45, \"project_type_encoded\": 0.25, \"construction_period\": 0.20, \"economic_indicator\": 0.10}, \"unit_cost_per_mw\": 45.0, \"prediction_timestamp\": \"2024-12-19 10:30:00\"}",
+          "risk_assessment_json": "{\"status\": \"success\", \"risk_level\": \"中等\", \"risk_score\": 65.5, \"cost_overrun_probability\": {\"0-10%\": 0.35, \"10-20%\": 0.30, \"20-30%\": 0.20, \"30%+\": 0.15}, \"contingency_recommendation\": {\"percentage\": 15.0, \"amount_million_rmb\": 810.0, \"justification\": \"基于中等风险等级的专业建议\"}, \"key_risk_factors\": [\"项目资金风险\", \"决策体制机制缺陷\"], \"mitigation_suggestions\": [\"优化资金筹措方案\", \"完善项目决策体制\"], \"assessment_timestamp\": \"2024-12-19 10:35:00\"}",
+          "project_params_json": "{\"capacity_mw\": 1200.0, \"project_type\": \"抽水蓄能\", \"construction_period\": 6, \"economic_indicator\": 0.75, \"client_type\": \"央企\", \"project_complexity\": \"复杂\", \"location\": \"四川省阿坝州\"}"
+        },
+        "expected_output_structure": {
+          "status": "success",
+          "project_summary": {
+            "total_cost_million_rmb": "总成本(万元)",
+            "total_cost_billion_rmb": "总成本(亿元)",
+            "cost_per_mw": "单位装机成本",
+            "construction_duration_months": "建设周期(月)",
+            "confidence_level": "置信水平"
+          },
+          "cost_drivers_analysis": "成本驱动因素分析",
+          "industry_benchmarking": {
+            "industry_average_cost_per_mw": "行业平均成本",
+            "project_vs_industry": "与行业对比",
+            "position_percentile": "行业位置百分位",
+            "comparable_projects": "可比项目列表"
+          },
+          "risk_analysis": {
+            "overall_risk": "整体风险等级",
+            "risk_score": "风险评分",
+            "key_risks": "关键风险列表",
+            "contingency_analysis": "应急费用分析",
+            "overrun_probability": "超支概率分布"
+          },
+          "optimization_opportunities": "优化机会分析",
+          "analysis_timestamp": "分析时间戳",
+          "data_sources": "数据来源说明"
+        }
+      }
+    ]
+  },
+  
+  "integration_examples": {
+    "description": "工具集成使用示例",
+    "workflow_example": {
+      "step_1": {
+        "tool": "predict_hydropower_cost",
+        "description": "首先进行成本预测",
+        "sample_call": {
+          "capacity_mw": 800.0,
+          "project_type": "常规大坝",
+          "construction_period": 5,
+          "economic_indicator": 0.7
+        }
+      },
+      "step_2": {
+        "tool": "assess_project_risk",
+        "description": "基于预测成本进行风险评估",
+        "sample_call": {
+          "predicted_cost": "从步骤1获取",
+          "project_type": "常规大坝",
+          "capacity_mw": 800.0,
+          "construction_period": 5,
+          "client_type": "国企",
+          "project_complexity": "中等"
+        }
+      },
+      "step_3": {
+        "tool": "generate_analysis_data",
+        "description": "整合前两步结果生成综合分析",
+        "sample_call": {
+          "cost_prediction_json": "步骤1的JSON输出",
+          "risk_assessment_json": "步骤2的JSON输出",
+          "project_params_json": "原始项目参数JSON"
+        }
+      }
+    }
+  },
+  
+  "parameter_validation_rules": {
+    "predict_hydropower_cost": {
+      "capacity_mw": "必须大于0的浮点数",
+      "project_type": "必须是'常规大坝'、'抽水蓄能'或'径流式'之一",
+      "construction_period": "必须大于0的整数(年)",
+      "economic_indicator": "0-1之间的浮点数"
+    },
+    "assess_project_risk": {
+      "predicted_cost": "必须大于0的浮点数(亿元)",
+      "project_type": "必须与成本预测工具一致",
+      "capacity_mw": "必须大于0的浮点数",
+      "construction_period": "必须大于0的整数(年)",
+      "client_type": "建议值: 央企/国企/民企/外企",
+      "project_complexity": "建议值: 简单/中等/复杂",
+      "optional_fields": "project_description, location, environmental_conditions为可选参数"
+    },
+    "generate_analysis_data": {
+      "cost_prediction_json": "必须是有效的JSON字符串，包含status=success",
+      "risk_assessment_json": "必须是有效的JSON字符串，包含status=success",
+      "project_params_json": "必须是有效的JSON字符串，包含原始项目参数"
+    }
+  },
+  
+  "usage_instructions": {
+    "basic_usage": [
+      "1. 准备项目基础参数(装机容量、项目类型、建设周期等)",
+      "2. 调用predict_hydropower_cost进行成本预测",
+      "3. 使用预测结果调用assess_project_risk进行风险评估",
+      "4. 将前两步结果输入generate_analysis_data生成综合分析"
+    ],
+    "data_format_notes": [
+      "所有JSON输入必须正确转义特殊字符",
+      "浮点数保留适当精度(通常2位小数)",
+      "时间戳格式: YYYY-MM-DD HH:MM:SS",
+      "中文字符使用UTF-8编码"
+    ],
+    "error_handling": [
+      "检查输入参数的数据类型和取值范围",
+      "验证JSON格式的正确性",
+      "处理模型初始化失败的情况",
+      "提供详细的错误信息和建议"
+    ]
+  },
+  
+  "business_scenarios": {
+    "scenario_1": {
+      "name": "新建大型水电站项目评估",
+      "description": "为新建的大型水电站项目提供全面的成本预测和风险评估",
+      "typical_parameters": {
+        "capacity_range": "500-2000 MW",
+        "project_types": ["常规大坝", "抽水蓄能"],
+        "construction_period": "4-8年",
+        "client_types": ["央企", "国企"]
+      }
+    },
+    "scenario_2": {
+      "name": "中小型水电站改造升级",
+      "description": "对现有中小型水电站进行智慧化改造的成本评估",
+      "typical_parameters": {
+        "capacity_range": "10-500 MW",
+        "project_types": ["径流式", "常规大坝"],
+        "construction_period": "1-3年",
+        "client_types": ["国企", "民企"]
+      }
+    },
+    "scenario_3": {
+      "name": "抽水蓄能电站投资决策",
+      "description": "为抽水蓄能电站项目提供投资决策支持分析",
+      "typical_parameters": {
+        "capacity_range": "600-1800 MW",
+        "project_types": ["抽水蓄能"],
+        "construction_period": "5-7年",
+        "client_types": ["央企"]
+      }
+    }
+  }
+}

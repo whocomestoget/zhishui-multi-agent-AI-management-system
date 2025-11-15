@@ -1,0 +1,103 @@
+{
+  "demo_case": {
+    "description": "智水人员效能管理服务完整演示案例",
+    "employee_info": {
+      "name": "李明华",
+      "employee_id": "ZS2024001",
+      "department": "智慧电厂运维部",
+      "position": "高级运维工程师",
+      "evaluation_period": "2024Q4",
+      "hire_date": "2020-03-15",
+      "education": "电气工程硕士",
+      "years_experience": 8
+    },
+    "position_type": "生产运维",
+    "metrics_data": {
+      "economic_value": {
+        "cost_optimization": {
+          "baseline_unit_cost": 1200.0,
+          "actual_unit_cost": 980.0,
+          "cost_saving_amount": 220000.0,
+          "efficiency_projects_led": 3
+        },
+        "digital_efficiency": {
+          "baseline_work_hours": 45.0,
+          "actual_work_hours": 38.0,
+          "automation_usage_rate": 0.85,
+          "digital_tools_mastery": 0.92
+        }
+      },
+      "customer_social": {
+        "service_reliability": {
+          "unplanned_outage_hours": 2.5,
+          "baseline_outage_hours": 8.0,
+          "quality_compliance_rate": 0.96,
+          "equipment_availability": 0.994
+        },
+        "customer_service": {
+          "complaint_resolution_rate": 0.95,
+          "average_response_time": 0.8,
+          "customer_satisfaction_score": 4.6,
+          "service_improvement_initiatives": 2
+        }
+      },
+      "internal_process": {
+        "process_efficiency": {
+          "baseline_process_cycle": 72.0,
+          "actual_process_cycle": 58.0,
+          "process_error_rate": 0.02,
+          "workflow_optimization_count": 4
+        },
+        "risk_compliance": {
+          "safety_incidents_found": 6,
+          "environmental_incidents": 0,
+          "compliance_training_completion": 1.0,
+          "risk_assessment_participation": 12
+        }
+      },
+      "learning_growth": {
+        "skill_development": {
+          "new_certifications_count": 2,
+          "training_hours_completed": 85,
+          "skill_assessment_score": 88,
+          "technical_competency_growth": 0.15
+        },
+        "innovation_sharing": {
+          "innovation_proposals_submitted": 3,
+          "innovation_proposals_adopted": 2,
+          "knowledge_sharing_contributions": 8,
+          "mentoring_hours": 24
+        },
+        "environmental_practice": {
+          "green_behavior_score": 4.5,
+          "environmental_improvement_proposals": 2,
+          "environmental_training_hours": 16,
+          "carbon_footprint_reduction": 0.12
+        }
+      }
+    }
+  },
+  "tool_1_params": {
+    "tool_name": "evaluate_employee_efficiency",
+    "employee_data": "{\"name\":\"李明华\",\"employee_id\":\"ZS2024001\",\"department\":\"智慧电厂运维部\",\"position\":\"高级运维工程师\",\"evaluation_period\":\"2024Q4\",\"hire_date\":\"2020-03-15\",\"education\":\"电气工程硕士\",\"years_experience\":8}",
+    "metrics_data": "{\"economic_value\":{\"cost_optimization\":{\"baseline_unit_cost\":1200.0,\"actual_unit_cost\":980.0,\"cost_saving_amount\":220000.0,\"efficiency_projects_led\":3},\"digital_efficiency\":{\"baseline_work_hours\":45.0,\"actual_work_hours\":38.0,\"automation_usage_rate\":0.85,\"digital_tools_mastery\":0.92}},\"customer_social\":{\"service_reliability\":{\"unplanned_outage_hours\":2.5,\"baseline_outage_hours\":8.0,\"quality_compliance_rate\":0.96,\"equipment_availability\":0.994},\"customer_service\":{\"complaint_resolution_rate\":0.95,\"average_response_time\":0.8,\"customer_satisfaction_score\":4.6,\"service_improvement_initiatives\":2}},\"internal_process\":{\"process_efficiency\":{\"baseline_process_cycle\":72.0,\"actual_process_cycle\":58.0,\"process_error_rate\":0.02,\"workflow_optimization_count\":4},\"risk_compliance\":{\"safety_incidents_found\":6,\"environmental_incidents\":0,\"compliance_training_completion\":1.0,\"risk_assessment_participation\":12}},\"learning_growth\":{\"skill_development\":{\"new_certifications_count\":2,\"training_hours_completed\":85,\"skill_assessment_score\":88,\"technical_competency_growth\":0.15},\"innovation_sharing\":{\"innovation_proposals_submitted\":3,\"innovation_proposals_adopted\":2,\"knowledge_sharing_contributions\":8,\"mentoring_hours\":24},\"environmental_practice\":{\"green_behavior_score\":4.5,\"environmental_improvement_proposals\":2,\"environmental_training_hours\":16,\"carbon_footprint_reduction\":0.12}}}",
+    "position_type": "生产运维"
+  },
+  "tool_2_params": {
+    "tool_name": "generate_efficiency_report",
+    "report_type": "individual",
+    "target_scope": "李明华",
+    "time_period": "quarterly",
+    "output_format": "html",
+    "data_source_note": "使用工具1的输出结果作为data_source参数"
+  },
+  "usage_instructions": {
+    "step_1": "首先调用evaluate_employee_efficiency工具进行效能评分",
+    "step_2": "将步骤1的JSON输出结果作为generate_efficiency_report工具的data_source参数",
+    "step_3": "生成HTML格式的个人效能分析报告",
+    "expected_results": {
+      "tool_1_output": "包含总分、各维度得分、AI生成的真实个性化建议的JSON格式评分结果",
+      "tool_2_output": "生成HTML文件并返回文件路径，可在浏览器中查看包含真实AI评价的交互报告"
+    }
+  }
+}

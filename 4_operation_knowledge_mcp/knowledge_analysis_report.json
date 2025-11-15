@@ -1,0 +1,16 @@
+{
+  "analysis_time": "2025-09-07T11:26:08.371419",
+  "database_path": "data\\knowledge.db",
+  "summary": {
+    "total_documents": 0,
+    "clean_documents": 0,
+    "suspicious_documents": 0,
+    "garbled_documents": 0
+  },
+  "details": {
+    "total_documents": 0,
+    "clean_documents": [],
+    "garbled_documents": [],
+    "suspicious_documents": []
+  }
+}

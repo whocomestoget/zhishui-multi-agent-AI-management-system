@@ -1,0 +1,128 @@
+{
+  "cost_prediction_mcp_test_data": {
+    "description": "智慧水电成本预测MCP工具集演示数据 - 极简版",
+    "version": "1.2_simplified",
+    "created_date": "2025-01-16",
+    "demo_project": {
+      "project_name": "四川中型常规大坝水电站",
+      "project_description": "四川省中型常规大坝水电站，装机容量800MW，建设周期6年"
+    },
+    "tools": {
+      "tool_1_predict_hydropower_cost": {
+        "tool_name": "predict_hydropower_cost",
+        "description": "智慧水电成本预测器",
+        "parameters": {
+          "capacity_mw": "装机容量(MW)",
+          "project_type": "项目类型(常规大坝/抽水蓄能/径流式)",
+          "construction_period": "建设周期(年)",
+          "economic_indicator": "经济指标(0-1之间)"
+        },
+        "demo_scenario": {
+          "scenario_name": "中型常规大坝项目成本预测",
+          "scenario_id": "DEMO_T1_SIMPLE",
+          "input_data": {
+            "capacity_mw": 800.0,
+            "project_type": "常规大坝",
+            "construction_period": 6,
+            "economic_indicator": 0.7
+          },
+          "description": "四川中型常规大坝水电站，装机容量800MW，建设周期6年"
+        }
+      },
+      "tool_2_assess_project_risk": {
+        "tool_name": "assess_project_risk",
+        "description": "智能项目风险评估器 - 基于动态AHP和LLM专家评估",
+        "parameters": {
+          "predicted_cost": "基础成本预测(亿元) - 来自工具1的输出",
+          "project_type": "项目类型(常规大坝/抽水蓄能/径流式)",
+          "capacity_mw": "装机容量(MW)",
+          "construction_period": "建设周期(年)",
+          "client_type": "客户类型(央企/国企/民企/外企)",
+          "project_complexity": "项目复杂度(简单/中等/复杂)"
+        },
+        "demo_scenario": {
+          "scenario_name": "中型常规大坝项目风险评估",
+          "scenario_id": "DEMO_T2_SIMPLE",
+          "input_data": {
+            "predicted_cost": "使用工具1的预测结果",
+            "project_type": "常规大坝",
+            "capacity_mw": 800.0,
+            "construction_period": 6,
+            "client_type": "国企",
+            "project_complexity": "中等"
+          },
+          "description": "国企投资的中型水电项目，技术成熟，风险可控"
+        }
+      }
+    },
+    "demo_workflow": {
+      "description": "简化的两工具协同演示流程",
+      "steps": [
+        {
+          "step": 1,
+          "action": "成本预测",
+          "tool": "tool_1_predict_hydropower_cost",
+          "input": "使用demo_scenario中的input_data（4个参数）",
+          "output": "获得成本预测结果"
+        },
+        {
+          "step": 2,
+          "action": "风险评估",
+          "tool": "tool_2_assess_project_risk",
+          "input": "使用工具1的预测成本 + demo_scenario中的其他参数（6个参数）",
+          "output": "获得风险评估结果"
+        },
+        {
+          "step": 3,
+          "action": "结果分析",
+          "description": "分析成本预测和风险评估结果"
+        }
+      ]
+    },
+    "usage_instructions": {
+      "quick_demo": {
+        "description": "快速演示方法",
+        "steps": [
+          "1. 使用工具1进行成本预测（4个基础参数）",
+          "2. 使用工具1结果+工具2进行风险评估（6个核心参数）",
+          "3. 查看协同效果"
+        ]
+      },
+      "parameter_guide": {
+        "tool_1_required": ["capacity_mw", "project_type", "construction_period", "economic_indicator"],
+        "tool_2_required": ["predicted_cost", "project_type", "capacity_mw", "construction_period", "client_type", "project_complexity"],
+        "simplification_notes": [
+          "移除了project_description（复杂项目描述）",
+          "移除了location（地理位置详情）", 
+          "移除了environmental_conditions（环境条件描述）",
+          "简化了项目规模（1200MW→800MW）",
+          "简化了复杂度（复杂→中等）",
+          "简化了客户类型（央企→国企）"
+        ]
+      }
+    },
+    "demo_expectations": {
+      "tool_1_output": "预期输出包含预测成本（约120亿元）、置信区间等",
+      "tool_2_output": "预期输出包含风险等级、风险评分、应急建议等",
+      "integration_value": "简化参数后，LLM专家评估更稳定，成功率更高"
+    },
+    "optimization_notes": {
+      "why_simplified": [
+        "减少LLM推理复杂度，提高方案层评估成功率",
+        "避免过长的项目描述导致JSON解析失败",
+        "保持核心功能完整性的同时提升稳定性"
+      ],
+      "removed_parameters": [
+        "project_description: 复杂的项目背景描述",
+        "location: 详细地理位置信息",
+        "environmental_conditions: 环境条件描述"
+      ],
+      "kept_core_features": [
+        "成本预测的4个核心参数",
+        "风险评估的6个必需参数",
+        "AHP层次分析法的完整逻辑",
+        "LLM专家评估的核心功能"
+      ]
+    }
+  }
+}

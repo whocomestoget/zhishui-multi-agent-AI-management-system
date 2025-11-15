@@ -1,0 +1,22 @@
+{
+  "report_metadata": {
+    "generation_time": "2025-09-10T17:33:07.796637",
+    "model_directory": "models",
+    "test_data_path": "data_templates/智慧水电成本预测数据模板_20250910_examples.csv",
+    "report_version": "1.0"
+  },
+  "model_validation": {
+    "timestamp": "2025-09-10T17:32:59.020630",
+    "test_data_shape": [
+      10,
+      6
+    ],
+    "metrics": {
+      "r2_score": 0.9209615452742556,
+      "rmse": 684666.8934140782,
+      "mae": 521676.07649999997,
+      "mape": 31.005116970722153,
+      "relative_rmse": 0.14274904917574088
+    },
+    "performance_targets_met": {
+      "r2_target_met": 
