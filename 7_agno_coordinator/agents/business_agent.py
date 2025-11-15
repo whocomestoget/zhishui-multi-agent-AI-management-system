@@ -20,15 +20,10 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from standardized_mcp_client_v2 import StandardizedMCPClient
+from config import get_ai_config
 
-# AI配置 - 所有模块统一使用
-AI_CONFIG = {
-    "api_key": "",
-    "api_base": "http://38.246.251.165:3002/v1",
-    "model": "gemini-2.5-flash-lite-preview-06-17",
-    "temperature": 0.7,
-    "max_tokens": 65000,
-}
+# AI配置 - 统一使用环境变量模式
+AI_CONFIG = get_ai_config()
 
 # ================================
 # BusinessAgent基类 - 重构版本
@@ -170,21 +165,21 @@ class BusinessAgent(BaseAgent):
             
             # 配置OpenAI客户端
             client = openai.OpenAI(
-                api_key=AI_CONFIG["api_key"],
-                base_url=AI_CONFIG["api_base"],
-                timeout=kwargs.get("timeout", 30)  # 设置较短的超时时间30秒
+                api_key=AI_CONFIG.get("api_key", ""),
+                base_url=AI_CONFIG.get("api_base", ""),
+                timeout=kwargs.get("timeout", 30)
             )
             
             self.logger.info("OpenAI客户端配置完成，开始发送请求...")
             
             # 调用LLM
             response = client.chat.completions.create(
-                model=AI_CONFIG["model"],
+                model=AI_CONFIG.get("model", ""),
                 messages=[
                     {"role": "system", "content": "你是智水信息技术有限公司的专业AI分析助手，专注于电力和水利行业的智慧管理解决方案。请提供专业、准确、实用的分析建议。"},
                     {"role": "user", "content": prompt}
                 ],
-                temperature=kwargs.get("temperature", AI_CONFIG["temperature"]),
+                temperature=kwargs.get("temperature", AI_CONFIG.get("temperature", 0.7)),
                 max_tokens=kwargs.get("max_tokens", 2000)
             )
             

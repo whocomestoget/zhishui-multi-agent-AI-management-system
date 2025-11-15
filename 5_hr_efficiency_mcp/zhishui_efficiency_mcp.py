@@ -114,13 +114,13 @@ def read_metrics_csv(file_path: str) -> Dict:
 # 1.5. AI配置
 # ================================
 
-# AI配置 - 统一使用标准配置
+# AI配置 - 统一使用环境变量模式
 AI_CONFIG = {
-    "api_key": "sk-Wy5BpzceSjET0ZiZWvaMaxUTrUiEKYGgElx10VL88lAnhgSe",
-    "api_base": "http://38.246.251.165:3002/v1",
-    "model": "gemini-2.5-flash-lite-preview-06-17",
-    "temperature": 0.7,
-    "max_tokens": 65000,
+    "api_key": os.getenv("OPENAI_API_KEY", ""),
+    "api_base": os.getenv("OPENAI_API_BASE", "http://38.246.251.165:3002/v1"),
+    "model": os.getenv("OPENAI_MODEL", "gemini-2.5-flash-lite-preview-06-17"),
+    "temperature": float(os.getenv("OPENAI_TEMPERATURE", "0.7")),
+    "max_tokens": int(os.getenv("OPENAI_MAX_TOKENS", "65000")),
 }
 
 # ================================
@@ -220,21 +220,21 @@ def generate_ai_suggestions(employee_info: Dict, scores_data: Dict) -> List[str]
         
         # 调用AI API
         headers = {
-            "Authorization": f"Bearer {AI_CONFIG['api_key']}",
+            "Authorization": f"Bearer {AI_CONFIG.get('api_key', '')}",
             "Content-Type": "application/json"
         }
         
         data = {
-            "model": AI_CONFIG["model"],
+            "model": AI_CONFIG.get("model", ""),
             "messages": [
                 {"role": "user", "content": prompt}
             ],
-            "temperature": AI_CONFIG["temperature"],
-            "max_tokens": 2000  # 增加token数量以支持更详细的建议
+            "temperature": AI_CONFIG.get("temperature", 0.7),
+            "max_tokens": 2000
         }
         
         response = requests.post(
-            f"{AI_CONFIG['api_base']}/chat/completions",
+            f"{AI_CONFIG.get('api_base', '')}/chat/completions",
             headers=headers,
             json=data,
             timeout=120

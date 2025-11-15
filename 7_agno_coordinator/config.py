@@ -22,13 +22,13 @@ from dataclasses import dataclass
 # 1. AI模型配置
 # ================================
 
-# 统一AI配置 - 所有模块使用
+# 统一AI配置 - 所有模块使用（环境变量优先）
 AI_CONFIG = {
-    "api_key": "", 
-    "api_base": "http://38.246.251.165:3002/v1",
-    "model": "gemini-2.5-flash-preview-05-20",
-    "temperature": 0.7,
-    "max_tokens": 65000,
+    "api_key": os.getenv("OPENAI_API_KEY", ""),
+    "api_base": os.getenv("OPENAI_API_BASE", "http://38.246.251.165:3002/v1"),
+    "model": os.getenv("OPENAI_MODEL", "gemini-2.5-flash-preview-05-20"),
+    "temperature": float(os.getenv("OPENAI_TEMPERATURE", "0.7")),
+    "max_tokens": int(os.getenv("OPENAI_MAX_TOKENS", "65000")),
 }
 
 # ================================

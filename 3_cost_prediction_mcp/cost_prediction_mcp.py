@@ -25,13 +25,14 @@ TOOL_NAME = "智慧水电成本预测MCP工具集"
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(TOOL_NAME)
 
-# AI配置 - 用于内部AHP专家评估
+# AI配置 - 用于内部AHP专家评估（环境变量优先）
+import os
 AI_CONFIG = {
-    "api_key": "sk-Wy5BpzceSjET0ZiZWvaMaxUTrUiEKYGgElx10VL88lAnhgSe",
-    "api_base": "http://38.246.251.165:3002/v1",
-    "model": "gemini-2.5-flash-lite-preview-06-17",
-    "temperature": 0.7,
-    "max_tokens": 200000,
+    "api_key": os.getenv("OPENAI_API_KEY", ""),
+    "api_base": os.getenv("OPENAI_API_BASE", "http://38.246.251.165:3002/v1"),
+    "model": os.getenv("OPENAI_MODEL", "gemini-2.5-flash-lite-preview-06-17"),
+    "temperature": float(os.getenv("OPENAI_TEMPERATURE", "0.7")),
+    "max_tokens": int(os.getenv("OPENAI_MAX_TOKENS", "200000")),
 }
 
 # 创建MCP服务器 - 指定端口8002
@@ -74,23 +75,23 @@ def call_llm_expert(prompt: str) -> str:
     """
     try:
         headers = {
-            "Authorization": f"Bearer {AI_CONFIG['api_key']}",
+            "Authorization": f"Bearer {AI_CONFIG.get('api_key', '')}",
             "Content-Type": "application/json"
         }
         
         data = {
-            "model": AI_CONFIG["model"],
+            "model": AI_CONFIG.get("model", ""),
             "messages": [
                 {
                     "role": "user",
                     "content": prompt
                 }
             ],
-            "temperature": AI_CONFIG["temperature"]
+            "temperature": AI_CONFIG.get("temperature", 0.7)
         }
         
         response = requests.post(
-            f"{AI_CONFIG['api_base']}/chat/completions",
+            f"{AI_CONFIG.get('api_base', '')}/chat/completions",
             headers=headers,
             json=data,
             timeout=600

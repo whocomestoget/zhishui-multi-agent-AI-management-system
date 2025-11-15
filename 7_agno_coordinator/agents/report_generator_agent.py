@@ -19,6 +19,9 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
 from openai import OpenAI
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from config import get_ai_config
 from .base_agent import BaseAgent, AgentTask, AgentResult
 from docx import Document
 from docx.shared import Inches, Pt
@@ -30,19 +33,13 @@ import os
 # 1. 配置和初始化
 # ================================
 
-# AI模型配置
-AI_CONFIG = {
-    "api_key": "sk-Wy5BpzceSjET0ZiZWvaMaxUTrUiEKYGgElx10VL88lAnhgSe",
-    "api_base": "http://38.246.251.165:3002/v1",
-    "model": "gemini-2.5-pro",
-    "temperature": 0.7,
-    "max_tokens": 65000,
-}
+# AI模型配置（统一使用环境变量模式）
+AI_CONFIG = get_ai_config()
 
 # 初始化OpenAI客户端
 client = OpenAI(
-    api_key=AI_CONFIG["api_key"],
-    base_url=AI_CONFIG["api_base"]
+    api_key=AI_CONFIG.get("api_key", ""),
+    base_url=AI_CONFIG.get("api_base", "")
 )
 
 # 日志配置
@@ -932,10 +929,10 @@ class ReportGeneratorAgent(BaseAgent):
             # 准备LLM输入
             analysis_prompt = self._build_analysis_prompt(agent_results, output_mode)
             
-            # 创建OpenAI客户端
+            # 创建OpenAI客户端（环境变量配置）
             client = OpenAI(
-                api_key=AI_CONFIG["api_key"],
-                base_url=AI_CONFIG["api_base"]
+                api_key=AI_CONFIG.get("api_key", ""),
+                base_url=AI_CONFIG.get("api_base", "")
             )
             
             # 调用LLM进行综合分析
