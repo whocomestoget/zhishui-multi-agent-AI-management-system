@@ -38,29 +38,43 @@ from models import ProjectInfo, FinancialData, AgentType
 
 config = get_config("agent_api")
 
-# 苹果风格配色方案
+# 蓝+黑高级质感配色（参考苹果官网的深色氛围与高对比度）
 APPLE_COLORS = {
-    "primary": "#007AFF",      # 苹果蓝
-    "secondary": "#5856D6",    # 紫色
-    "success": "#34C759",      # 绿色
-    "warning": "#FF9500",      # 橙色
-    "danger": "#FF3B30",       # 红色
-    "info": "#5AC8FA",         # 浅蓝
-    "light": "#F2F2F7",        # 浅灰
-    "dark": "#1C1C1E",         # 深灰
-    "white": "#FFFFFF",        # 白色
-    "black": "#000000",        # 黑色
-    "gray": "#8E8E93"          # 中灰
+    "primary": "#2563eb",      
+    "secondary": "#3b82f6",    
+    "accent": "#22d3ee",       
+    "light": "#0f1b3d",        
+    "lighter": "#0b1220",      
+    "white": "#ffffff",        
+    "gray": "#1f2937",         
+    "dark": "#0b1220",         
+    "darker": "#0a0f1e",       
+    "text_primary": "#e5e7eb", 
+    "text_secondary": "#cbd5e1",
+    "text_muted": "#94a3b8",   
+    "border": "#1f2a40",       
+    "border_light": "#20314c", 
+    "shadow": "rgba(2, 8, 23, 0.45)", 
+    "shadow_blue": "rgba(37, 99, 235, 0.35)", 
+    "success": "#10b981",     
+    "warning": "#f59e0b",     
+    "danger": "#ef4444",      
+    "info": "#3b82f6",        
+    "purple": "#a78bfa",      
+    "pink": "#ec4899"         
 }
 
-# 图表主题配置
+# 图表主题配置（深色背景 + 多彩色盘）
 CHART_THEME = {
     "layout": {
-        "font": {"family": "SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif", "size": 12},
-        "plot_bgcolor": "rgba(248,250,252,0.8)",  # 灰色背景
-        "paper_bgcolor": "rgba(248,250,252,0.8)",  # 灰色背景
-        "colorway": [APPLE_COLORS["primary"], APPLE_COLORS["success"], APPLE_COLORS["warning"], 
-                     APPLE_COLORS["danger"], APPLE_COLORS["secondary"], APPLE_COLORS["info"]]
+        "font": {"family": "SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif", "size": 12, "color": APPLE_COLORS["text_primary"]},
+        "plot_bgcolor": APPLE_COLORS["lighter"],
+        "paper_bgcolor": APPLE_COLORS["lighter"],
+        "colorway": [
+            APPLE_COLORS["primary"], APPLE_COLORS["accent"], APPLE_COLORS["purple"],
+            APPLE_COLORS["success"], APPLE_COLORS["warning"], APPLE_COLORS["danger"],
+            APPLE_COLORS["pink"]
+        ]
     }
 }
 
@@ -69,33 +83,50 @@ CHART_THEME = {
 # ============================================================================
 
 def apple_card(title: str, content: Any, icon: str = "📊", color: str = "primary") -> None:
-    """苹果风格卡片组件"""
+    """苹果风格卡片组件 - 蓝黑质感配色"""
     card_color = APPLE_COLORS.get(color, APPLE_COLORS["primary"])
     
     st.markdown(f"""
     <div style="
-        background: linear-gradient(135deg, {card_color}15 0%, {card_color}05 100%);
-        border: 1px solid {card_color}30;
-        border-radius: 12px;
-        padding: 20px;
-        margin: 10px 0;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        backdrop-filter: blur(10px);
+        background: linear-gradient(145deg, {APPLE_COLORS['lighter']} 0%, {APPLE_COLORS['light']} 100%);
+        border: 1px solid {APPLE_COLORS['border']};
+        border-radius: 20px;
+        padding: 32px;
+        margin: 16px 0;
+        box-shadow: {APPLE_COLORS['shadow']} 0px 8px 32px, {APPLE_COLORS['shadow_blue']} 0px 2px 10px;
+        backdrop-filter: blur(16px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
     ">
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, {card_color} 0%, {APPLE_COLORS['accent']} 100%);
+        "></div>
         <div style="
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 24px;
         ">
-            <span style="font-size: 20px; margin-right: 10px;">{icon}</span>
+            <span style="font-size: 28px; margin-right: 16px; color: {card_color};">{icon}</span>
             <h3 style="
                 margin: 0;
-                color: {card_color};
+                color: {APPLE_COLORS['text_primary']};
                 font-weight: 600;
-                font-size: 18px;
+                font-size: 24px;
+                font-family: {FONT_CONFIG['family']};
             ">{title}</h3>
         </div>
-        <div style="color: #1C1C1E; font-size: 14px;">
+        <div style="
+            color: {APPLE_COLORS['text_secondary']};
+            font-size: 16px;
+            line-height: {FONT_CONFIG['line_heights']['relaxed']};
+            font-family: {FONT_CONFIG['family']};
+        ">
             {content}
         </div>
     </div>
@@ -103,37 +134,77 @@ def apple_card(title: str, content: Any, icon: str = "📊", color: str = "prima
 
 def apple_metric_card(title: str, value: Union[str, int, float], 
                      delta: Optional[str] = None, icon: str = "📈") -> None:
-    """苹果风格指标卡片"""
+    """苹果风格指标卡片 - 蓝黑质感配色"""
     delta_color = APPLE_COLORS["success"] if delta and "+" in str(delta) else APPLE_COLORS["danger"]
-    delta_html = f"<span style='color: {delta_color}; font-size: 12px;'>{delta}</span>" if delta else ""
+    delta_html = f"<span style='color: {delta_color}; font-size: 14px; font-weight: 600;'>{delta}</span>" if delta else ""
+    
+    # 格式化数值
+    formatted_value = value
+    if isinstance(value, (int, float)):
+        if value >= 1000000:
+            formatted_value = f"{value/1000000:.1f}M"
+        elif value >= 1000:
+            formatted_value = f"{value/1000:.1f}K"
+        else:
+            formatted_value = f"{value:,.0f}"
     
     st.markdown(f"""
     <div style="
-        background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-        border: 1px solid #E5E5EA;
-        border-radius: 16px;
-        padding: 24px;
+        background: linear-gradient(145deg, {APPLE_COLORS['lighter']} 0%, {APPLE_COLORS['light']} 100%);
+        border: 1px solid {APPLE_COLORS['border']};
+        border-radius: 20px;
+        padding: 32px 24px;
         text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        transition: transform 0.2s ease;
-    " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="font-size: 24px; margin-bottom: 8px;">{icon}</div>
-        <div style="color: #8E8E93; font-size: 12px; margin-bottom: 4px;">{title}</div>
-        <div style="color: #1C1C1E; font-size: 28px; font-weight: 700; margin-bottom: 4px;">{value}</div>
+        box-shadow: {APPLE_COLORS['shadow']} 0px 4px 16px, {APPLE_COLORS['shadow_blue']} 0px 1px 6px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    " onmouseover="this.style.transform='translateY(-4px) scale(1.02)'; this.style.boxShadow='{APPLE_COLORS['shadow']} 0px 8px 32px, {APPLE_COLORS['shadow_blue']} 0px 2px 10px';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='{APPLE_COLORS['shadow']} 0px 4px 16px, {APPLE_COLORS['shadow_blue']} 0px 1px 6px';">
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, {APPLE_COLORS['primary']} 0%, {APPLE_COLORS['accent']} 100%);
+        "></div>
+        <div style="
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: {APPLE_COLORS['primary']};
+            filter: drop-shadow(0 2px 4px {APPLE_COLORS['shadow_blue']});
+        ">{icon}</div>
+        <div style="
+            color: {APPLE_COLORS['text_secondary']};
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: {FONT_CONFIG['family']};
+        ">{title}</div>
+        <div style="
+            color: {APPLE_COLORS['text_primary']};
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: {FONT_CONFIG['family']};
+            line-height: 1;
+        ">{formatted_value}</div>
         {delta_html}
     </div>
     """, unsafe_allow_html=True)
 
 def apple_button(label: str, key: str, color: str = "primary", 
                 size: str = "medium", disabled: bool = False) -> bool:
-    """苹果风格按钮组件"""
+    """苹果官网风格按钮组件 - 白蓝高级配色"""
     button_color = APPLE_COLORS.get(color, APPLE_COLORS["primary"])
     
     # 根据尺寸设置样式
     size_styles = {
-        "small": {"padding": "8px 16px", "font-size": "12px", "border-radius": "8px"},
-        "medium": {"padding": "12px 24px", "font-size": "14px", "border-radius": "10px"},
-        "large": {"padding": "16px 32px", "font-size": "16px", "border-radius": "12px"}
+        "small": {"padding": "12px 24px", "font-size": "14px", "border-radius": "12px"},
+        "medium": {"padding": "16px 32px", "font-size": "16px", "border-radius": "12px"},
+        "large": {"padding": "20px 40px", "font-size": "18px", "border-radius": "12px"}
     }
     
     style = size_styles.get(size, size_styles["medium"])
@@ -142,7 +213,7 @@ def apple_button(label: str, key: str, color: str = "primary",
     button_html = f"""
     <style>
     .apple-button-{key} {{
-        background: {button_color};
+        background: linear-gradient(135deg, {button_color} 0%, {APPLE_COLORS['secondary']} 100%);
         color: white;
         border: none;
         border-radius: {style['border-radius']};
@@ -151,13 +222,33 @@ def apple_button(label: str, key: str, color: str = "primary",
         font-weight: 600;
         cursor: {'not-allowed' if disabled else 'pointer'};
         opacity: {'0.5' if disabled else '1'};
-        transition: all 0.2s ease;
-        font-family: SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: {FONT_CONFIG['family']};
+        box-shadow: {APPLE_COLORS['shadow_blue']} 0px 4px 16px;
+        position: relative;
+        overflow: hidden;
     }}
-    .apple-button-{key}:hover {{
-        background: {button_color}DD;
-        transform: {'none' if disabled else 'translateY(-1px)'};
-        box-shadow: {'none' if disabled else '0 4px 12px rgba(0,0,0,0.15)'};
+    .apple-button-{key}:before {{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.6s ease;
+    }}
+    .apple-button-{key}:hover:not(:disabled) {{
+        background: linear-gradient(135deg, {button_color} 0%, {APPLE_COLORS['primary']} 100%);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: {APPLE_COLORS['shadow_blue']} 0px 8px 32px;
+    }}
+    .apple-button-{key}:hover:not(:disabled):before {{
+        left: 100%;
+    }}
+    .apple-button-{key}:active:not(:disabled) {{
+        transform: translateY(0) scale(0.98);
+        box-shadow: {APPLE_COLORS['shadow_blue']} 0px 2px 8px;
     }}
     </style>
     """
@@ -201,20 +292,20 @@ def apple_progress_bar(progress: float, label: str = "", color: str = "primary")
 
 def create_apple_chart(chart_type: str, data: pd.DataFrame, 
                       title: str, **kwargs) -> go.Figure:
-    """创建苹果风格图表"""
+    """创建苹果风格图表（深色背景 + 多彩色盘）"""
     
     # 基础配置
     fig_config = {
         "layout": {
             "title": {
                 "text": title,
-                "font": {"size": 18, "color": APPLE_COLORS["dark"], "family": "SF Pro Display"},
+                "font": {"size": 18, "color": APPLE_COLORS["text_primary"], "family": "SF Pro Display"},
                 "x": 0.5,
                 "xanchor": "center"
             },
-            "font": {"family": "SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif"},
-            "plot_bgcolor": "rgba(248,250,252,0.8)",  # 灰色背景
-            "paper_bgcolor": "rgba(248,250,252,0.8)",  # 灰色背景
+            "font": {"family": "SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif", "color": APPLE_COLORS["text_primary"]},
+            "plot_bgcolor": APPLE_COLORS["lighter"],
+            "paper_bgcolor": APPLE_COLORS["lighter"],
             "margin": {"l": 40, "r": 40, "t": 60, "b": 40},
             "showlegend": True,
             "legend": {
@@ -222,7 +313,8 @@ def create_apple_chart(chart_type: str, data: pd.DataFrame,
                 "yanchor": "bottom",
                 "y": 1.02,
                 "xanchor": "right",
-                "x": 1
+                "x": 1,
+                "font": {"color": APPLE_COLORS["text_secondary"]}
             }
         }
     }
@@ -246,13 +338,13 @@ def create_apple_chart(chart_type: str, data: pd.DataFrame,
     fig.update_layout(colorway=CHART_THEME["layout"]["colorway"])
     
     # 网格线样式
-    fig.update_xaxes(gridcolor="#F2F2F7", gridwidth=1)
-    fig.update_yaxes(gridcolor="#F2F2F7", gridwidth=1)
+    fig.update_xaxes(gridcolor=APPLE_COLORS["border"], gridwidth=1)
+    fig.update_yaxes(gridcolor=APPLE_COLORS["border"], gridwidth=1)
     
     return fig
 
 def financial_overview_chart(financial_data: List[Dict]) -> go.Figure:
-    """财务概览图表"""
+    """财务概览图表（多彩色盘，深色背景）"""
     if not financial_data:
         # 创建示例数据
         dates = pd.date_range(start='2024-01-01', end='2024-12-31', freq='M')
@@ -313,15 +405,16 @@ def financial_overview_chart(financial_data: List[Dict]) -> go.Figure:
         title_text="财务数据概览",
         title_x=0.5,
         showlegend=False,
-        font=dict(family="SF Pro Display", size=12),
-        plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-        paper_bgcolor="rgba(248,250,252,0.8)"  # 灰色背景
+        font=dict(family="SF Pro Display", size=12, color=APPLE_COLORS["text_primary"]),
+        plot_bgcolor=APPLE_COLORS["lighter"],
+        paper_bgcolor=APPLE_COLORS["lighter"],
+        colorway=CHART_THEME["layout"]["colorway"]
     )
     
     return fig
 
 def project_status_chart(project_data: List[Dict]) -> go.Figure:
-    """项目状态图表"""
+    """项目状态图表（多彩色盘，深色背景）"""
     if not project_data:
         # 创建示例数据
         project_data = [
@@ -341,8 +434,8 @@ def project_status_chart(project_data: List[Dict]) -> go.Figure:
     )
     
     # 项目数量饼图
-    colors = [APPLE_COLORS["primary"], APPLE_COLORS["success"], 
-              APPLE_COLORS["warning"], APPLE_COLORS["danger"]]
+    colors = [APPLE_COLORS["primary"], APPLE_COLORS["accent"], 
+              APPLE_COLORS["success"], APPLE_COLORS["warning"], APPLE_COLORS["danger"], APPLE_COLORS["purple"]][:len(df['status'])]
     
     fig.add_trace(
         go.Pie(labels=df['status'], values=df['count'], 
@@ -361,9 +454,10 @@ def project_status_chart(project_data: List[Dict]) -> go.Figure:
         height=400,
         title_text="项目状态分析",
         title_x=0.5,
-        font=dict(family="SF Pro Display", size=12),
-        plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-        paper_bgcolor="rgba(248,250,252,0.8)"  # 灰色背景
+        font=dict(family="SF Pro Display", size=12, color=APPLE_COLORS["text_primary"]),
+        plot_bgcolor=APPLE_COLORS["lighter"],
+        paper_bgcolor=APPLE_COLORS["lighter"],
+        colorway=CHART_THEME["layout"]["colorway"]
     )
     
     return fig

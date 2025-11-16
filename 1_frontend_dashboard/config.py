@@ -93,30 +93,41 @@ AGENT_CONFIG = {
 # UI样式配置
 # ============================================================================
 
-# 苹果风格配色方案
+# 苹果风格配色方案 - 白蓝高级质感
 COLOR_SCHEME = {
-    "primary": "#007aff",      # 苹果蓝
-    "secondary": "#34c759",    # 苹果绿
-    "warning": "#ff9500",      # 苹果橙
-    "danger": "#ff3b30",       # 苹果红
-    "dark": "#1d1d1f",         # 苹果深灰
-    "light": "#f5f5f7",        # 苹果浅灰
-    "text_primary": "#1d1d1f", # 主要文字
-    "text_secondary": "#86868b", # 次要文字
-    "background": "#ffffff",   # 背景色
-    "card_background": "#ffffff", # 卡片背景
-    "border": "#f5f5f7"        # 边框色
+    "primary": "#1d4ed8",      # 深蓝 - 主色调
+    "secondary": "#3b82f6",    # 标准蓝 - 辅助色
+    "accent": "#60a5fa",       # 浅蓝 - 强调色
+    "light": "#dbeafe",       # 极浅蓝 - 背景色
+    "lighter": "#f0f9ff",     # 最浅蓝 - 卡片背景
+    "white": "#ffffff",       # 纯白
+    "gray": "#f8fafc",        # 浅灰
+    "dark": "#0f172a",        # 深蓝黑 - 文字主色
+    "darker": "#1e293b",      # 深灰 - 文字次要色
+    "text_primary": "#0f172a", # 主要文字 - 深蓝黑
+    "text_secondary": "#475569", # 次要文字 - 灰蓝
+    "text_muted": "#94a3b8",   # 弱文字 - 浅灰蓝
+    "border": "#e2e8f0",      # 边框 - 浅灰蓝
+    "border_light": "#f1f5f9", # 浅色边框
+    "shadow": "rgba(15, 23, 42, 0.08)", # 阴影色
+    "shadow_blue": "rgba(59, 130, 246, 0.15)", # 蓝色阴影
+    "success": "#10b981",     # 成功绿
+    "warning": "#f59e0b",   # 警告橙
+    "danger": "#ef4444",     # 危险红
+    "info": "#3b82f6"        # 信息蓝
 }
 
-# 字体配置
+# 字体配置 - 苹果官网风格
 FONT_CONFIG = {
-    "family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "family": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif",
     "sizes": {
-        "title": "3.5rem",
-        "subtitle": "1.5rem",
-        "heading": "1.25rem",
-        "body": "1rem",
-        "small": "0.875rem"
+        "hero": "4rem",           # 主标题
+        "title": "3.5rem",        # 页面标题
+        "subtitle": "1.5rem",     # 副标题
+        "heading": "1.25rem",     # 小标题
+        "body": "1rem",           # 正文
+        "small": "0.875rem",      # 小字
+        "caption": "0.75rem"      # 说明文字
     },
     "weights": {
         "light": 300,
@@ -124,22 +135,40 @@ FONT_CONFIG = {
         "medium": 500,
         "semibold": 600,
         "bold": 700
+    },
+    "line_heights": {
+        "tight": 1.2,
+        "normal": 1.5,
+        "relaxed": 1.75
     }
 }
 
-# 布局配置
+# 布局配置 - 苹果官网风格
 LAYOUT_CONFIG = {
-    "container_max_width": "1200px",
-    "sidebar_width": "300px",
-    "card_border_radius": "18px",
+    "container_max_width": "1280px",
+    "sidebar_width": "280px",
+    "card_border_radius": "20px",
     "button_border_radius": "12px",
+    "input_border_radius": "12px",
     "spacing": {
-        "xs": "0.25rem",
-        "sm": "0.5rem",
+        "xs": "0.5rem",
+        "sm": "0.75rem",
         "md": "1rem",
         "lg": "1.5rem",
         "xl": "2rem",
-        "xxl": "3rem"
+        "xxl": "3rem",
+        "hero": "4rem"
+    },
+    "shadows": {
+        "sm": "0 1px 3px rgba(15, 23, 42, 0.1)",
+        "md": "0 4px 12px rgba(15, 23, 42, 0.15)",
+        "lg": "0 8px 25px rgba(15, 23, 42, 0.2)",
+        "blue": "0 4px 20px rgba(59, 130, 246, 0.25)"
+    },
+    "transitions": {
+        "fast": "0.15s ease",
+        "normal": "0.3s ease",
+        "slow": "0.5s ease"
     }
 }
 
@@ -158,17 +187,26 @@ DATA_CONFIG = {
     "pagination_size": 50  # 分页大小
 }
 
-# 图表配置
+# 图表配置 - 白蓝高级配色
 CHART_CONFIG = {
-    "default_height": 400,
-    "default_width": 800,
+    "default_height": 450,
+    "default_width": 900,
     "color_palette": [
-        "#007aff", "#34c759", "#ff9500", "#ff3b30",
-        "#5856d6", "#af52de", "#ff2d92", "#a2845e"
+        "#1d4ed8",  # 深蓝
+        "#3b82f6",  # 标准蓝
+        "#60a5fa",  # 浅蓝
+        "#93c5fd",  # 极浅蓝
+        "#dbeafe",  # 蓝色背景
+        "#0f172a",  # 深蓝黑
+        "#475569",  # 灰蓝
+        "#64748b"   # 浅灰蓝
     ],
     "template": "plotly_white",
-    "font_family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    "animation_duration": 500
+    "font_family": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+    "animation_duration": 800,
+    "background_color": "#ffffff",
+    "grid_color": "#f1f5f9",
+    "text_color": "#0f172a"
 }
 
 # ============================================================================
