@@ -230,20 +230,16 @@ def load_custom_css():
     """
     st.markdown("""
     <style>
-    /* 强制设置全局背景 - 优雅灰色渐变主题 */
+    /* 全局背景 - 蓝+黑高级质感 */
     html, body, [data-testid="stAppViewContainer"], [data-testid="stMainBlockContainer"], .main, .stApp {
-        background: linear-gradient(135deg, 
-            #f8fafc 0%, 
-            #f1f5f9 15%, 
-            #e2e8f0 30%, 
-            #cbd5e1 45%, 
-            #94a3b8 60%, 
-            #64748b 75%, 
-            #475569 90%, 
-            #334155 100%) !important;
-        background-size: 400% 400% !important;
-        animation: gradientShift 22s ease infinite !important;
+        background: linear-gradient(135deg,
+            #0b1220 0%,
+            #0f1b3d 40%,
+            #0a0f1e 100%) !important;
+        background-size: 300% 300% !important;
+        animation: gradientShift 20s ease infinite !important;
         min-height: 100vh !important;
+        color: #ffffff !important;
     }
     
     /* 确保所有容器都使用绿色背景 */
@@ -258,7 +254,7 @@ def load_custom_css():
         position: relative;
     }
     
-    /* 添加优雅灰色主题的底色层 */
+    /* Apple风格玻璃态背景层 */
     .main::after {
         content: '';
         position: fixed;
@@ -266,15 +262,15 @@ def load_custom_css():
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(ellipse at center, 
-            rgba(100, 116, 139, 0.3) 0%, 
-            rgba(71, 85, 105, 0.2) 40%, 
-            transparent 70%);
+        background: radial-gradient(ellipse at center,
+            rgba(37, 99, 235, 0.12) 0%,
+            rgba(2, 8, 23, 0.1) 50%,
+            transparent 75%);
         pointer-events: none;
         z-index: -2;
     }
     
-    /* 添加优雅灰色主题几何背景图案 */
+    /* Apple风格几何背景图案 */
     .main::before {
         content: '';
         position: fixed;
@@ -282,13 +278,13 @@ def load_custom_css():
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: 
-            radial-gradient(circle at 25% 25%, rgba(100, 116, 139, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(71, 85, 105, 0.12) 0%, transparent 50%),
-            linear-gradient(45deg, rgba(100, 116, 139, 0.08) 25%, transparent 25%),
-            linear-gradient(-45deg, rgba(71, 85, 105, 0.06) 25%, transparent 25%);
-        background-size: 200px 200px, 300px 300px, 60px 60px, 60px 60px;
-        background-position: 0 0, 100px 100px, 0 0, 30px 30px;
+        background-image:
+            radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+            linear-gradient(45deg, rgba(3, 15, 30, 0.35) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(3, 15, 30, 0.25) 25%, transparent 25%);
+        background-size: 250px 250px, 350px 350px, 80px 80px, 80px 80px;
+        background-position: 0 0, 150px 150px, 0 0, 40px 40px;
         pointer-events: none;
         z-index: -1;
     }
@@ -315,7 +311,7 @@ def load_custom_css():
     .apple-title {
         font-size: 3.5rem;
         font-weight: 600;
-        color: #1d1d1f;
+        color: #22d3ee;
         text-align: center;
         margin: 2rem 0;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -325,27 +321,27 @@ def load_custom_css():
     .apple-subtitle {
         font-size: 1.5rem;
         font-weight: 400;
-        color: #86868b;
+        color: #ffffff;
         text-align: center;
         margin-bottom: 3rem;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
     
-    /* 顶部导航栏 - 玻璃态效果 */
+    /* 顶部导航栏 - Apple风格玻璃态 */
     .top-navigation {
-        background: linear-gradient(135deg, 
-            rgba(74, 111, 165, 0.9) 0%, 
-            rgba(107, 141, 214, 0.85) 50%, 
-            rgba(90, 143, 216, 0.9) 100%);
-        backdrop-filter: blur(20px);
+        background: linear-gradient(135deg,
+            rgba(2, 8, 23, 0.85) 0%,
+            rgba(15, 27, 61, 0.9) 40%,
+            rgba(37, 99, 235, 0.8) 100%);
+        backdrop-filter: blur(25px);
         padding: 1.5rem 2rem;
-        border-radius: 20px;
+        border-radius: 24px;
         margin-bottom: 2rem;
         box-shadow: 
-            0 8px 32px rgba(74, 111, 165, 0.2),
-            0 2px 8px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+            0 12px 40px rgba(37, 99, 235, 0.25),
+            0 4px 12px rgba(2, 8, 23, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         position: relative;
         overflow: hidden;
     }
@@ -370,7 +366,7 @@ def load_custom_css():
     }
     
     .nav-title {
-        color: white;
+        color: #ffffff;
         font-size: 1.8rem;
         font-weight: 600;
         margin-bottom: 1rem;
@@ -386,47 +382,49 @@ def load_custom_css():
     }
     
     .nav-button {
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.2);
         color: white;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 16px;
         padding: 0.75rem 1.5rem;
         font-weight: 500;
         font-size: 0.95rem;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
         text-decoration: none;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        box-shadow: 0 4px 20px rgba(29, 78, 216, 0.2);
     }
     
     .nav-button:hover {
-        background: rgba(255, 255, 255, 0.25);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(29, 78, 216, 0.3);
     }
     
     .nav-button.active {
-        background: rgba(255, 255, 255, 0.95);
-        color: #4a6fa5;
+        background: rgba(255, 255, 255, 0.98);
+        color: #1d4ed8;
         font-weight: 600;
+        box-shadow: 0 6px 25px rgba(29, 78, 216, 0.35);
     }
     
-    /* 卡片容器 - 绿色主题增强视觉效果 */
+    /* Apple风格卡片 - 白蓝高级配色 */
     .apple-card {
-        background: linear-gradient(145deg, 
-            rgba(255, 255, 255, 0.98) 0%, 
-            rgba(247, 254, 249, 0.95) 50%, 
-            rgba(255, 255, 255, 0.92) 100%);
-        backdrop-filter: blur(15px);
-        border-radius: 20px;
+        background: linear-gradient(145deg,
+            rgba(11, 18, 32, 0.95) 0%,
+            rgba(15, 27, 61, 0.92) 60%,
+            rgba(11, 18, 32, 0.90) 100%);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
         padding: 2rem;
         margin: 1rem 0;
         box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.08),
-            0 2px 8px rgba(236, 253, 245, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9),
-            inset 0 -1px 0 rgba(240, 253, 244, 0.6);
-        border: 1px solid rgba(236, 253, 245, 0.8);
+            0 12px 40px rgba(37, 99, 235, 0.18),
+            0 4px 12px rgba(2, 8, 23, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(37, 99, 235, 0.25);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -438,72 +436,73 @@ def load_custom_css():
         top: 0;
         left: 0;
         right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.4), transparent);
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(29, 78, 216, 0.4), transparent);
     }
     
     .apple-card:hover {
         box-shadow: 
-            0 20px 60px rgba(0, 0, 0, 0.12),
-            0 6px 20px rgba(236, 253, 245, 0.5),
-            inset 0 1px 0 rgba(255, 255, 255, 0.95),
-            inset 0 -1px 0 rgba(240, 253, 244, 0.8);
-        transform: translateY(-6px) scale(1.02);
-        background: linear-gradient(145deg, 
-            rgba(255, 255, 255, 0.99) 0%, 
-            rgba(247, 254, 249, 0.98) 50%, 
-            rgba(255, 255, 255, 0.96) 100%);
-        border-color: rgba(236, 253, 245, 0.9);
+            0 20px 60px rgba(37, 99, 235, 0.3),
+            0 6px 20px rgba(37, 99, 235, 0.15),
+            inset 0 1px 0 rgba(37, 99, 235, 0.4),
+            inset 0 -1px 0 rgba(37, 99, 235, 0.2);
+        transform: translateY(-8px) scale(1.02);
+        background: linear-gradient(145deg,
+            rgba(11, 18, 32, 0.98) 0%,
+            rgba(15, 27, 61, 0.95) 60%,
+            rgba(11, 18, 32, 0.92) 100%);
+        border-color: rgba(37, 99, 235, 0.4);
     }
     
-    /* 蓝色强调色 */
+    /* Apple蓝色强调色 */
     .apple-blue {
-        color: #5a8fd8;
+        color: #22d3ee;
         font-weight: 600;
     }
     
-    /* 按钮样式 */
+    /* Apple风格按钮 */
     .stButton > button {
-        background: #5a8fd8;
+        background: linear-gradient(135deg, #1d4ed8, #3b82f6);
         color: white;
         border: none;
-        border-radius: 12px;
+        border-radius: 16px;
         padding: 0.75rem 2rem;
         font-weight: 600;
         font-size: 1rem;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        box-shadow: 0 4px 20px rgba(29, 78, 216, 0.3);
     }
     
     .stButton > button:hover {
-        background: #4a7bc8;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 15px rgba(90, 143, 216, 0.25);
+        background: linear-gradient(135deg, #1e40af, #2563eb);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(29, 78, 216, 0.4);
     }
     
-    /* 指标卡片 - 增强视觉效果 */
+    /* Apple风格指标卡片 */
     .metric-card {
         background: linear-gradient(135deg, 
-            #5a8fd8 0%, 
-            #4a7bc8 25%, 
-            #6b8dd6 50%, 
-            #5a8fd8 75%, 
-            #4a7bc8 100%);
+            #1d4ed8 0%, 
+            #3b82f6 25%, 
+            #60a5fa 50%, 
+            #93c5fd 75%, 
+            #bfdbfe 100%);
         background-size: 200% 200%;
         animation: gradientFlow 8s ease infinite;
         color: white;
         padding: 2rem 1.5rem;
-        border-radius: 18px;
+        border-radius: 24px;
         text-align: center;
         margin: 0.5rem 0;
         box-shadow: 
-            0 8px 32px rgba(90, 143, 216, 0.3),
-            0 2px 8px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+            0 12px 40px rgba(29, 78, 216, 0.35),
+            0 4px 12px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         position: relative;
         overflow: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .metric-card::before {
@@ -513,16 +512,16 @@ def load_custom_css():
         left: 0;
         right: 0;
         bottom: 0;
-        background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
         pointer-events: none;
     }
     
     .metric-card:hover {
-        transform: translateY(-2px) scale(1.02);
+        transform: translateY(-4px) scale(1.03);
         box-shadow: 
-            0 12px 40px rgba(90, 143, 216, 0.4),
-            0 4px 12px rgba(0, 0, 0, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            0 16px 50px rgba(29, 78, 216, 0.45),
+            0 6px 16px rgba(0, 0, 0, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
     
     @keyframes gradientFlow {
@@ -542,112 +541,123 @@ def load_custom_css():
         opacity: 0.9;
     }
     
-    /* 数据表格样式 */
+    /* Apple风格数据表格 */
     .dataframe {
-        border-radius: 12px;
+        border-radius: 16px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
+        border: 1px solid rgba(37, 99, 235, 0.25);
+        background: rgba(11, 18, 32, 0.9);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
+        color: #ffffff;
     }
     
-    /* Streamlit组件样式增强 - 绿色主题 */
+    /* Apple风格Streamlit组件 */
     .stSelectbox > div > div {
         background: linear-gradient(145deg, 
-            rgba(255, 255, 255, 0.95) 0%, 
-            rgba(247, 254, 249, 0.9) 100%);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(236, 253, 245, 0.6);
-        border-radius: 12px;
-        box-shadow: 0 3px 12px rgba(236, 253, 245, 0.2);
+            rgba(255, 255, 255, 0.98) 0%, 
+            rgba(240, 249, 255, 0.95) 100%);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(224, 242, 254, 0.7);
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(29, 78, 216, 0.15);
+        transition: all 0.3s ease;
     }
     
     .stFileUploader > div {
         background: linear-gradient(145deg, 
-            rgba(255, 255, 255, 0.92) 0%, 
-            rgba(247, 254, 249, 0.88) 100%);
-        backdrop-filter: blur(12px);
-        border: 2px dashed rgba(236, 253, 245, 0.5);
-        border-radius: 16px;
+            rgba(255, 255, 255, 0.95) 0%, 
+            rgba(240, 249, 255, 0.92) 100%);
+        backdrop-filter: blur(15px);
+        border: 2px dashed rgba(147, 197, 253, 0.6);
+        border-radius: 20px;
         padding: 2rem;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .stFileUploader > div:hover {
-        border-color: rgba(34, 197, 94, 0.4);
+        border-color: rgba(37, 99, 235, 0.6);
         background: linear-gradient(145deg, 
-            rgba(255, 255, 255, 0.98) 0%, 
-            rgba(247, 254, 249, 0.95) 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(236, 253, 245, 0.3);
+            rgba(11, 18, 32, 0.98) 0%, 
+            rgba(15, 27, 61, 0.95) 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
     }
     
     .stTabs [data-baseweb="tab-list"] {
         background: linear-gradient(145deg, 
-            rgba(255, 255, 255, 0.85) 0%, 
-            rgba(247, 254, 249, 0.8) 100%);
-        backdrop-filter: blur(12px);
-        border-radius: 16px;
+            rgba(11, 18, 32, 0.9) 0%, 
+            rgba(15, 27, 61, 0.85) 100%);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
         padding: 0.5rem;
-        box-shadow: 0 4px 16px rgba(236, 253, 245, 0.2);
-        border: 1px solid rgba(240, 253, 244, 0.7);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+        border: 1px solid rgba(37, 99, 235, 0.4);
     }
     
     .stTabs [data-baseweb="tab"] {
-        border-radius: 12px;
-        transition: all 0.3s ease;
+        border-radius: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        color: #ffffff !important;
+        font-weight: 500;
     }
     
     .stTabs [aria-selected="true"] {
-        background: rgba(34, 197, 94, 0.1);
-        color: #16a34a;
+        background: linear-gradient(135deg, #1d4ed8, #3b82f6) !important;
+        color: white !important;
+        font-weight: 600;
+        box-shadow: 0 4px 16px rgba(29, 78, 216, 0.3) !important;
     }
     
-    /* 增强文本输入框 - 绿色主题 */
+    /* Apple风格文本输入框 */
     .stTextInput > div > div > input {
         background: linear-gradient(145deg, 
-            rgba(255, 255, 255, 0.95) 0%, 
-            rgba(247, 254, 249, 0.9) 100%);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(236, 253, 245, 0.6);
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        box-shadow: inset 0 1px 3px rgba(236, 253, 245, 0.1);
+            rgba(255, 255, 255, 0.98) 0%, 
+            rgba(240, 249, 255, 0.95) 100%);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(224, 242, 254, 0.7);
+        border-radius: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: inset 0 1px 3px rgba(29, 78, 216, 0.1);
+        color: #1e293b;
     }
     
     .stTextInput > div > div > input:focus {
-        border-color: #22c55e;
+        border-color: #1d4ed8;
         box-shadow: 
-            0 0 0 3px rgba(34, 197, 94, 0.15),
-            inset 0 1px 3px rgba(236, 253, 245, 0.1);
+            0 0 0 4px rgba(29, 78, 216, 0.2),
+            inset 0 1px 3px rgba(29, 78, 216, 0.1);
         background: linear-gradient(145deg, 
-            rgba(255, 255, 255, 0.98) 0%, 
-            rgba(247, 254, 249, 0.95) 100%);
+            rgba(255, 255, 255, 0.99) 0%, 
+            rgba(240, 249, 255, 0.98) 100%);
     }
     
-    /* 选项卡样式优化 */
+    /* Apple风格选项卡 */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
-        background-color: #f8f9fa;
-        border-radius: 12px;
-        padding: 4px;
+        background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,249,255,0.85));
+        border-radius: 20px;
+        padding: 6px;
+        box-shadow: 0 4px 16px rgba(29, 78, 216, 0.1);
+        border: 1px solid rgba(224, 242, 254, 0.6);
     }
     
     .stTabs [data-baseweb="tab"] {
         background-color: transparent;
-        border-radius: 8px;
-        color: #8e9aaf;
+        border-radius: 16px;
+        color: #64748b;
         font-weight: 500;
         padding: 12px 24px;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #f1f5f9, #e2e8f0) !important;
-        color: #334155 !important;
+        background: linear-gradient(135deg, #1d4ed8, #3b82f6) !important;
+        color: white !important;
         font-weight: 600;
-        box-shadow: 0 2px 8px rgba(100, 116, 139, 0.2) !important;
-        border: 1px solid rgba(100, 116, 139, 0.3) !important;
+        box-shadow: 0 4px 20px rgba(29, 78, 216, 0.3) !important;
+        border: none !important;
     }
     
     /* 隐藏Streamlit默认元素 */
@@ -655,20 +665,34 @@ def load_custom_css():
     footer {visibility: hidden;}
     header {visibility: hidden;}
     
-    /* 响应式设计 */
+    /* Apple风格响应式设计 */
     @media (max-width: 768px) {
         .apple-title {
             font-size: 2.5rem;
         }
         .apple-card {
-            padding: 1rem;
+            padding: 1.5rem;
+            border-radius: 20px;
         }
         .nav-buttons {
             flex-direction: column;
             align-items: center;
+            gap: 0.75rem;
         }
         .nav-button {
-            width: 200px;
+            width: 220px;
+            text-align: center;
+            border-radius: 14px;
+        }
+        .metric-card {
+            padding: 1.5rem 1rem;
+        }
+        .stTabs [data-baseweb="tab-list"] {
+            flex-direction: column;
+            gap: 6px;
+        }
+        .stTabs [data-baseweb="tab"] {
+            width: 100%;
             text-align: center;
         }
     }
@@ -943,7 +967,7 @@ def render_apple_header():
     st.markdown(f"""
     <div class="apple-title">{logo_html} 智水信息AI智慧信息系统</div>
     <div class="apple-subtitle">AI驱动的项目信息整合与智能决策支持系统</div>
-    <div style="text-align: center; margin-top: 10px; color: #888; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">2025 Designed by 商海星辰</div>
+    <div style="text-align: center; margin-top: 10px; color: #ffffff; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">2025 Designed by 商海星辰</div>
     """, unsafe_allow_html=True)
 
 def render_metrics_dashboard(data: Dict[str, pd.DataFrame]):
@@ -1018,42 +1042,46 @@ def render_data_visualization(data: Dict[str, pd.DataFrame]):
     col1, col2 = st.columns(2)
     
     with col1:
-        # 财务趋势图 - 增加现金流分析
+        # 财务趋势图 - 彩色配色方案
         fig_financial = go.Figure()
         fig_financial.add_trace(go.Scatter(
             x=data['financial']['月份'],
             y=data['financial']['营业收入(万元)'],
             mode='lines+markers',
             name='营业收入',
-            line=dict(color='#007aff', width=3),
-            marker=dict(size=8)
+            line=dict(color='#22d3ee', width=3),  # 青色
+            marker=dict(size=8, color='#22d3ee')
         ))
         fig_financial.add_trace(go.Scatter(
             x=data['financial']['月份'],
             y=data['financial']['净利润(万元)'],
             mode='lines+markers',
             name='净利润',
-            line=dict(color='#34c759', width=3),
-            marker=dict(size=8)
+            line=dict(color='#a78bfa', width=3),  # 紫色
+            marker=dict(size=8, color='#a78bfa')
         ))
         fig_financial.add_trace(go.Scatter(
             x=data['financial']['月份'],
             y=data['financial']['净现金流(万元)'],
             mode='lines+markers',
             name='净现金流',
-            line=dict(color='#ff9500', width=3),
-            marker=dict(size=8)
+            line=dict(color='#10b981', width=3),  # 绿色
+            marker=dict(size=8, color='#10b981')
         ))
         
         fig_financial.update_layout(
             title="财务趋势分析",
             xaxis_title="月份",
             yaxis_title="金额(万元)",
-            template="plotly_white",
-            plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            paper_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
+            template="plotly_dark",
+            plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
             height=400,
-            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif")
+            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+            title_font=dict(size=18, color='#60a5fa'),
+            xaxis=dict(gridcolor='rgba(37, 99, 235, 0.3)', linecolor='#2563eb', title_font=dict(color='#ffffff')),
+            yaxis=dict(gridcolor='rgba(37, 99, 235, 0.3)', linecolor='#2563eb', title_font=dict(color='#ffffff')),
+            legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
         )
         
         st.plotly_chart(fig_financial, use_container_width=True)
@@ -1068,16 +1096,18 @@ def render_data_visualization(data: Dict[str, pd.DataFrame]):
                 labels=cost_by_type.index,
                 values=cost_by_type.values,
                 hole=0.4,
-                marker_colors=['#007aff', '#34c759', '#ff9500', '#ff3b30']
+                marker_colors=['#22d3ee', '#a78bfa', '#10b981', '#f59e0b', '#ef4444', '#ec4899']  # 彩色配色
             )])
             
             fig_cost.update_layout(
                 title="项目类型成本分布",
-                template="plotly_white",
-                plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-                paper_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
+                template="plotly_dark",
+                plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+                paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
                 height=400,
-                font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif")
+                font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+                title_font=dict(size=18, color='#22d3ee'),
+                legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
             )
             
             st.plotly_chart(fig_cost, use_container_width=True)
@@ -1087,16 +1117,18 @@ def render_data_visualization(data: Dict[str, pd.DataFrame]):
                 labels=['水电站', '风电场', '光伏电站'],
                 values=[45, 30, 25],
                 hole=0.4,
-                marker_colors=['#007aff', '#34c759', '#ff9500']
+                marker_colors=['#22d3ee', '#a78bfa', '#10b981']  # 彩色配色
             )])
             
             fig_placeholder.update_layout(
                 title="项目类型成本分布（示例）",
-                template="plotly_white",
-                plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-                paper_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
+                template="plotly_dark",
+                plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+                paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
                 height=400,
-                font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif")
+                font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+                title_font=dict(size=18, color='#22d3ee'),
+                legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
             )
             
             st.plotly_chart(fig_placeholder, use_container_width=True)
@@ -1111,6 +1143,82 @@ def render_data_management():
     tab1, tab2 = st.tabs(["📤 数据导入", "📥 数据导出"])
     
     with tab1:
+        # 添加自定义CSS优化数据导入区域的可读性
+        st.markdown("""
+        <style>
+        /* 文件上传组件：提升文字可读性 */
+        div[data-testid="stFileUploader"] * {
+            color: #ffffff !important;
+        }
+        
+        /* 拖拽/浏览区域的提示与按钮文字 */
+        div[data-testid="stFileUploaderDropzone"] *,
+        div[data-testid="stFileUploaderDropzone"] button {
+            color: #e5e7eb !important;
+            font-weight: 500 !important;
+        }
+        
+        /* 已上传文件项：文件名与细节 */
+        div[data-testid="stUploadedFile"] * {
+            color: #ffffff !important;
+        }
+        div[data-testid="stUploadedFile"] strong,
+        div[data-testid="stUploadedFileName"] {
+            color: #ffffff !important; /* 文件名更亮 */
+            font-weight: 600 !important;
+        }
+        div[data-testid="stUploadedFileDetails"],
+        div[data-testid="stUploadedFile"] small {
+            color: #cbd5e1 !important; /* 大小/类型信息 */
+        }
+        
+        /* 删除按钮（红色强调） */
+        div[data-testid="stUploadedFile"] button {
+            color: #ef4444 !important;
+            font-weight: 500 !important;
+        }
+        div[data-testid="stUploadedFile"] button:hover {
+            color: #ffffff !important;
+            background: rgba(239, 68, 68, 0.15) !important;
+        }
+        
+        /* 文件上传标签优化 */
+        div[data-testid="stFileUploader"] label {
+            color: #ffffff !important;
+            font-weight: 500 !important;
+        }
+        
+        /* Metric容器文本颜色优化 */
+        div[data-testid="metric-container"] * {
+            color: #e5e7eb !important;
+        }
+        /* Metric 数值（更亮，白色） */
+        div[data-testid="stMetricValue"] {
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+        /* Metric 标签（浅灰） */
+        div[data-testid="stMetricLabel"] {
+            color: #e5e7eb !important;
+        }
+        /* Metric 增减颜色 */
+        div[data-testid="stMetricDelta"] {
+            color: #10b981 !important;
+        }
+        div[data-testid="stMetricDelta"] svg path[fill="#ff2e2e"] {
+            fill: #ef4444 !important;
+        }
+        
+        /* 选项卡文字优化 */
+        .stTabs [data-baseweb="tab"] {
+            color: #cbd5e1 !important;
+        }
+        .stTabs [aria-selected="true"] {
+            color: #ffffff !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        
         st.markdown("#### 📊 数据导入")
         
         # 创建四个数据导入模块
@@ -1125,7 +1233,8 @@ def render_data_management():
                 "选择财务分析Excel文件",
                 type=['xlsx', 'xls'],
                 key="financial_upload",
-                help="包含现金流、收入支出等财务数据"
+                help="包含现金流、收入支出等财务数据",
+                label_visibility="collapsed"
             )
             
             if financial_file is not None:
@@ -1143,7 +1252,8 @@ def render_data_management():
                 "选择成本预测Excel文件",
                 type=['xlsx', 'xls'],
                 key="cost_upload",
-                help="包含项目成本、工期、风险等数据"
+                help="包含项目成本、工期、风险等数据",
+                label_visibility="collapsed"
             )
             
             if cost_file is not None:
@@ -1162,7 +1272,8 @@ def render_data_management():
                 "选择员工效能Excel文件",
                 type=['xlsx', 'xls'],
                 key="hr_upload",
-                help="包含员工绩效、技能、项目贡献等数据"
+                help="包含员工绩效、技能、项目贡献等数据",
+                label_visibility="collapsed"
             )
             
             if hr_file is not None:
@@ -1180,7 +1291,8 @@ def render_data_management():
                 "选择财务报表Excel文件",
                 type=['xlsx', 'xls'],
                 key="report_upload",
-                help="包含资产负债表、利润表、现金流量表等"
+                help="包含资产负债表、利润表、现金流量表等",
+                label_visibility="collapsed"
             )
             
             if report_file is not None:
@@ -1221,6 +1333,29 @@ def render_data_management():
                 st.metric("财务报表数据", "0 行", "⏳ 待导入")
     
     with tab2:
+        # 数据导出区域也应用相同的字体颜色优化
+        st.markdown("""
+        <style>
+        /* 确保数据导出区域的文字也清晰可见 */
+        .stButton > button {
+            color: #ffffff !important;
+            font-weight: 500 !important;
+        }
+        /* 导出区域的说明文字 */
+        .stMarkdown p, .stMarkdown li {
+            color: #ffffff !important;
+        }
+        /* 文件下载链接 */
+        a[download] {
+            color: #22d3ee !important;
+            font-weight: 500 !important;
+        }
+        a[download]:hover {
+            color: #60a5fa !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        
         st.markdown("#### 📤 数据导出")
         st.markdown("为智水信息Multi-Agent智能体导出专门格式数据")
         
@@ -1651,7 +1786,7 @@ def render_agent_interaction():
                         border-radius: 15px;
                         margin: 10px 0;
                         margin-right: 50px;
-                        border-left: 4px solid #64748b;
+                        border-left: 4px solid #ffffff;
                         box-shadow: 0 2px 10px rgba(100, 116, 139, 0.2);
                     ">
                         <strong>{status_icon} {status_text}：</strong><br><br>
@@ -1799,17 +1934,19 @@ def render_agent_interaction():
         # 文件信息展示
         st.markdown(f"""
         <div style="
-            background: linear-gradient(135deg, #e8f5e8, #f0f9ff);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 10px 0;
-            border-left: 4px solid #34c759;
+            background: linear-gradient(135deg, rgba(224, 242, 254, 0.95), rgba(191, 219, 254, 0.9));
+            padding: 20px;
+            border-radius: 16px;
+            margin: 12px 0;
+            border-left: 4px solid #1d4ed8;
+            box-shadow: 0 4px 20px rgba(29, 78, 216, 0.15);
+            backdrop-filter: blur(10px);
         ">
-            <div style="display: flex; align-items: center; margin-bottom: 8px;">
-                <span style="font-size: 20px; margin-right: 10px;">📁</span>
-                <strong style="color: #34c759;">文件已选择</strong>
+            <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                <span style="font-size: 24px; margin-right: 12px; color: #1d4ed8;">📁</span>
+                <strong style="color: #1d4ed8; font-size: 16px;">文件已选择</strong>
             </div>
-            <div style="font-size: 14px; color: #64748b; margin-left: 30px;">
+            <div style="font-size: 14px; color: #334155; margin-left: 36px; line-height: 1.6;">
                 <strong>文件名：</strong>{uploaded_file.name}<br>
                 <strong>文件类型：</strong>{uploaded_file.type}<br>
                 <strong>文件大小：</strong>{file_size_mb:.2f} MB
@@ -2034,26 +2171,27 @@ def render_agent_interaction():
             with progress_placeholder.container():
                 st.markdown("""
                 <div style="
-                    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-                    padding: 20px;
-                    border-radius: 15px;
-                    margin: 10px 0;
-                    border-left: 4px solid #007aff;
-                    box-shadow: 0 2px 10px rgba(0, 122, 255, 0.2);
+                    background: linear-gradient(135deg, rgba(224, 242, 254, 0.95), rgba(191, 219, 254, 0.9));
+                    padding: 24px;
+                    border-radius: 20px;
+                    margin: 12px 0;
+                    border-left: 4px solid #1d4ed8;
+                    box-shadow: 0 6px 25px rgba(29, 78, 216, 0.2);
+                    backdrop-filter: blur(12px);
                 ">
-                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
                         <div style="
-                            width: 20px;
-                            height: 20px;
-                            border: 2px solid #007aff;
-                            border-top: 2px solid transparent;
+                            width: 24px;
+                            height: 24px;
+                            border: 3px solid #1d4ed8;
+                            border-top: 3px solid transparent;
                             border-radius: 50%;
                             animation: spin 1s linear infinite;
-                            margin-right: 10px;
+                            margin-right: 12px;
                         "></div>
-                        <strong style="color: #007aff;">🤖 智水AI系统正在分析中...</strong>
+                        <strong style="color: #1d4ed8; font-size: 16px;">🤖 智水AI系统正在分析中...</strong>
                     </div>
-                    <div style="font-size: 14px; color: #64748b; margin-left: 30px;">
+                    <div style="font-size: 14px; color: #334155; margin-left: 36px; line-height: 1.6;">
                         正在调用Multi-Agent智能体系统，请稍候...
                     </div>
                 </div>
@@ -2169,29 +2307,34 @@ def render_reports():
         st.markdown("#### 财务数据详细报表")
         st.dataframe(data['financial'], use_container_width=True)
         
-        # 收入成本对比
+        # 收入成本对比 - 彩色配色
         fig_finance = go.Figure()
         fig_finance.add_trace(go.Bar(
             x=data['financial']['月份'],
             y=data['financial']['营业收入(万元)'],
             name='营业收入',
-            marker_color='#007aff'
+            marker_color='#22d3ee'  # 青色
         ))
         fig_finance.add_trace(go.Bar(
             x=data['financial']['月份'],
             y=data['financial']['项目成本(万元)'],
             name='项目成本',
-            marker_color='#ff3b30'
+            marker_color='#a78bfa'  # 紫色
         ))
         
         fig_finance.update_layout(
             title="收入成本对比分析",
             xaxis_title="月份",
             yaxis_title="金额(万元)",
-            template="plotly_white",
-            plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            paper_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            height=400
+            template="plotly_dark",
+            plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            height=400,
+            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+            title_font=dict(size=18, color='#22d3ee'),
+            xaxis=dict(gridcolor='rgba(37, 99, 235, 0.3)', linecolor='#2563eb', title_font=dict(color='#ffffff')),
+            yaxis=dict(gridcolor='rgba(37, 99, 235, 0.3)', linecolor='#2563eb', title_font=dict(color='#ffffff')),
+            legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
         )
         st.plotly_chart(fig_finance, use_container_width=True)
     
@@ -2199,7 +2342,7 @@ def render_reports():
         st.markdown("#### 成本预测详细报表")
         st.dataframe(data['cost_prediction'], use_container_width=True)
         
-        # 成本预测分析 - 修复并增强图表
+        # 成本预测分析 - 彩色配色方案
         fig_cost = px.scatter(
             data['cost_prediction'], 
             x='装机容量(MW)', 
@@ -2209,21 +2352,26 @@ def render_reports():
             hover_data=['项目名称', '地质条件', '建设周期(月)', '完成进度(%)'],
             title="装机容量与成本关系分析",
             color_discrete_map={
-                '规划中': '#007aff',
-                '建设中': '#ff9500',
-                '运维中': '#34c759',
-                '升级中': '#af52de',
-                '优化中': '#ff3b30'
+                '规划中': '#22d3ee',    # 青色
+                '建设中': '#a78bfa',    # 紫色
+                '运维中': '#10b981',    # 绿色
+                '升级中': '#f59e0b',    # 橙色
+                '优化中': '#ef4444'     # 红色
             }
         )
         fig_cost.update_layout(
             height=400,
-            plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            paper_bgcolor="rgba(248,250,252,0.8)"  # 灰色背景
+            template="plotly_dark",
+            plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+            title_font=dict(size=18, color='#22d3ee'),
+            xaxis=dict(gridcolor='rgba(37, 99, 235, 0.3)', title_font=dict(color='#94a3b8')),
+            yaxis=dict(gridcolor='rgba(37, 99, 235, 0.3)', title_font=dict(color='#94a3b8'))
         )
         st.plotly_chart(fig_cost, use_container_width=True)
         
-        # 新增：项目建设进度条形图
+        # 新增：项目建设进度条形图 - 彩色配色
         fig_progress = px.bar(
             data['cost_prediction'],
             x='项目名称',
@@ -2232,20 +2380,24 @@ def render_reports():
             title="项目建设进度分析",
             text='完成进度(%)',
             color_discrete_map={
-                '规划中': '#007aff',
-                '建设中': '#ff9500',
-                '运维中': '#34c759',
-                '升级中': '#af52de',
-                '优化中': '#ff3b30'
+                '规划中': '#22d3ee',    # 青色
+                '建设中': '#a78bfa',    # 紫色
+                '运维中': '#10b981',    # 绿色
+                '升级中': '#f59e0b',    # 橙色
+                '优化中': '#ef4444'     # 红色
             }
         )
         fig_progress.update_layout(
-            height=600,  # 进一步增加高度
+            height=600,
             xaxis_tickangle=-45,
-            plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            paper_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            margin=dict(t=120, b=80, l=80, r=80),  # 增加所有边距
-            yaxis=dict(showticklabels=False, title='')  # 隐藏y轴标签和标题
+            template="plotly_dark",
+            plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            margin=dict(t=120, b=80, l=80, r=80),
+            yaxis=dict(showticklabels=False, title=''),
+            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+            title_font=dict(size=18, color='#22d3ee'),
+            legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
         )
         fig_progress.update_traces(texttemplate='%{text}', textposition='outside')
         st.plotly_chart(fig_progress, use_container_width=True)
@@ -2254,7 +2406,7 @@ def render_reports():
         st.markdown("#### 知识库管理报表")
         st.dataframe(data['knowledge_docs'], use_container_width=True)
         
-        # 知识库访问分析
+        # 知识库访问分析 - 彩色配色
         fig_knowledge = px.bar(
             data['knowledge_docs'], 
             x='文档标题', 
@@ -2262,36 +2414,44 @@ def render_reports():
             color='文档类型',
             title="知识库文档访问统计",
             color_discrete_map={
-                '技术规范': '#007aff',
-                '安全规程': '#34c759',  # 修复：使用正确的文档类型
-                '操作手册': '#ff9500',
-                '故障处理': '#ff3b30',
-                '最佳实践': '#af52de'
+                '技术规范': '#22d3ee',    # 青色
+                '安全规程': '#a78bfa',    # 紫色
+                '操作手册': '#10b981',    # 绿色
+                '故障处理': '#f59e0b',    # 橙色
+                '最佳实践': '#ef4444'     # 红色
             }
         )
         fig_knowledge.update_layout(
             height=400,
-            xaxis_tickangle=-45,  # 旋转x轴标签以避免重叠
-            plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            paper_bgcolor="rgba(248,250,252,0.8)"  # 灰色背景
+            xaxis_tickangle=-45,
+            template="plotly_dark",
+            plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+            title_font=dict(size=18, color='#22d3ee'),
+            legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
         )
         st.plotly_chart(fig_knowledge, use_container_width=True)
         
-        # 新增：文档状态分布饼图
+        # 新增：文档状态分布饼图 - 彩色配色
         fig_status = px.pie(
             data['knowledge_docs'],
             names='文档状态',
             title="文档处理状态分布",
             color_discrete_map={
-                '已索引': '#34c759',
-                '处理中': '#ff9500',
-                '待处理': '#ff3b30'
+                '已索引': '#22d3ee',    # 青色
+                '处理中': '#a78bfa',    # 紫色
+                '待处理': '#10b981'     # 绿色
             }
         )
         fig_status.update_layout(
             height=400,
-            plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            paper_bgcolor="rgba(248,250,252,0.8)"  # 灰色背景
+            template="plotly_dark",
+            plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+            title_font=dict(size=18, color='#22d3ee'),
+            legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
         )
         st.plotly_chart(fig_status, use_container_width=True)
         
@@ -2299,29 +2459,33 @@ def render_reports():
         st.markdown("#### 员工效能评估报表")
         st.dataframe(data['employee_efficiency'], use_container_width=True)
         
-        # 员工效能分析 - 修复字段引用错误
+        # 员工效能分析 - 彩色配色
         fig_efficiency = px.bar(
             data['employee_efficiency'], 
             x='员工姓名', 
-            y='综合评分',  # 修复：使用正确的字段名
+            y='综合评分',
             color='部门',
             title="员工综合评分分析",
             color_discrete_map={
-                '技术部': '#007aff',
-                '项目部': '#34c759',
-                '运维部': '#ff9500',
-                '财务部': '#ff3b30'
+                '技术部': '#22d3ee',    # 青色
+                '项目部': '#a78bfa',    # 紫色
+                '运维部': '#10b981',    # 绿色
+                '财务部': '#f59e0b'     # 橙色
             }
         )
         fig_efficiency.update_layout(
             height=400,
-            xaxis_tickangle=-45,  # 旋转x轴标签以避免重叠
-            plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            paper_bgcolor="rgba(248,250,252,0.8)"  # 灰色背景
+            xaxis_tickangle=-45,
+            template="plotly_dark",
+            plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+            title_font=dict(size=18, color='#22d3ee'),
+            legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
         )
         st.plotly_chart(fig_efficiency, use_container_width=True)
         
-        # 新增：部门效能对比饼图
+        # 新增：部门效能对比饼图 - 彩色配色
         dept_efficiency = data['employee_efficiency'].groupby('部门')['综合评分'].mean().reset_index()
         fig_dept_pie = px.pie(
             dept_efficiency,
@@ -2329,16 +2493,20 @@ def render_reports():
             values='综合评分',
             title="各部门平均综合评分对比",
             color_discrete_map={
-                '技术部': '#007aff',
-                '项目部': '#34c759',
-                '运维部': '#ff9500',
-                '财务部': '#ff3b30'
+                '技术部': '#22d3ee',    # 青色
+                '项目部': '#a78bfa',    # 紫色
+                '运维部': '#10b981',    # 绿色
+                '财务部': '#f59e0b'     # 橙色
             }
         )
         fig_dept_pie.update_layout(
             height=400,
-            plot_bgcolor="rgba(248,250,252,0.8)",  # 灰色背景
-            paper_bgcolor="rgba(248,250,252,0.8)"  # 灰色背景
+            template="plotly_dark",
+            plot_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            paper_bgcolor="rgba(11, 18, 32, 0.8)",  # 蓝黑背景
+            font=dict(family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", color='#ffffff'),
+            title_font=dict(size=18, color='#22d3ee'),
+            legend=dict(bgcolor='rgba(15, 27, 61, 0.9)', bordercolor='#2563eb', borderwidth=1, font=dict(color='#ffffff'))
         )
         st.plotly_chart(fig_dept_pie, use_container_width=True)
 
@@ -2584,7 +2752,7 @@ def main():
     # 页脚
     st.markdown("---")
     st.markdown(
-        "<div style='text-align: center; color: #86868b; padding: 2rem;'>" +
+        "<div style='text-align: center; color: #ffffff; padding: 2rem;'>" +
         "2025 Designed by 商海星辰" +
         "</div>",
         unsafe_allow_html=True
